@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  printbeat
+//  printbeatAdmin
 //
 //  Created by Alex on 5/26/19.
 //  Copyright © 2019 Alex Vozniuk. All rights reserved.
@@ -17,7 +17,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
-        FirebaseApp.configure()
+         FirebaseApp.configure()
         return true
     }
 

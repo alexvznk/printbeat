@@ -7,14 +7,33 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		D3BC38CBA49CAD0913D687AE /* Pods_printbeatAdmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9C75F78E90890FEE087D22 /* Pods_printbeatAdmin.framework */; };
+		F3A45FAEDD84571ADCEA202E /* Pods_printbeat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF25055704F1C0C9ED70B8F /* Pods_printbeat.framework */; };
 		FA0AEE6B229BAB10002227C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AEE6A229BAB10002227C1 /* AppDelegate.swift */; };
 		FA0AEE6D229BAB10002227C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AEE6C229BAB10002227C1 /* ViewController.swift */; };
 		FA0AEE70229BAB10002227C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA0AEE6E229BAB10002227C1 /* Main.storyboard */; };
 		FA0AEE72229BAB10002227C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA0AEE71229BAB10002227C1 /* Assets.xcassets */; };
 		FA0AEE75229BAB10002227C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA0AEE73229BAB10002227C1 /* LaunchScreen.storyboard */; };
+		FA0AEE83229BAB1B002227C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AEE82229BAB1B002227C1 /* AppDelegate.swift */; };
+		FA0AEE85229BAB1B002227C1 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AEE84229BAB1B002227C1 /* ViewController.swift */; };
+		FA0AEE88229BAB1B002227C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA0AEE86229BAB1B002227C1 /* Main.storyboard */; };
+		FA0AEE8D229BAB1B002227C1 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA0AEE8B229BAB1B002227C1 /* LaunchScreen.storyboard */; };
+		FA0AEE93229BABBD002227C1 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FA0AEE71229BAB10002227C1 /* Assets.xcassets */; };
+		FA0AEE95229BAF09002227C1 /* Login.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA0AEE94229BAF09002227C1 /* Login.storyboard */; };
+		FA4EEBE3229BBE3400748A19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA4EEBE2229BBE3400748A19 /* GoogleService-Info.plist */; };
+		FA4EEBE5229BBFD600748A19 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = FA4EEBE4229BBFD600748A19 /* GoogleService-Info.plist */; };
+		FA4EEBEB229BC70800748A19 /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4EEBEA229BC70800748A19 /* LoginVC.swift */; };
+		FA4EEBED229BC71600748A19 /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4EEBEC229BC71600748A19 /* RegisterVC.swift */; };
+		FA4EEBF0229C999700748A19 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4EEBEF229C999700748A19 /* Constants.swift */; };
+		FA4EEBF2229C9E0600748A19 /* RoundedViews.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4EEBF1229C9E0600748A19 /* RoundedViews.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		1D9C75F78E90890FEE087D22 /* Pods_printbeatAdmin.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_printbeatAdmin.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		3484F32B6948F07D86B1962F /* Pods-printbeatAdmin.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-printbeatAdmin.release.xcconfig"; path = "Pods/Target Support Files/Pods-printbeatAdmin/Pods-printbeatAdmin.release.xcconfig"; sourceTree = "<group>"; };
+		BCF25055704F1C0C9ED70B8F /* Pods_printbeat.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_printbeat.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		C38EFF677FB092160BA3EF7B /* Pods-printbeat.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-printbeat.release.xcconfig"; path = "Pods/Target Support Files/Pods-printbeat/Pods-printbeat.release.xcconfig"; sourceTree = "<group>"; };
+		CCC01F9C244AEF606EF97253 /* Pods-printbeat.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-printbeat.debug.xcconfig"; path = "Pods/Target Support Files/Pods-printbeat/Pods-printbeat.debug.xcconfig"; sourceTree = "<group>"; };
 		FA0AEE67229BAB10002227C1 /* printbeat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = printbeat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		FA0AEE6A229BAB10002227C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		FA0AEE6C229BAB10002227C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -22,6 +41,20 @@
 		FA0AEE71229BAB10002227C1 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		FA0AEE74229BAB10002227C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FA0AEE76229BAB10002227C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA0AEE80229BAB1B002227C1 /* printbeatAdmin.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = printbeatAdmin.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		FA0AEE82229BAB1B002227C1 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		FA0AEE84229BAB1B002227C1 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		FA0AEE87229BAB1B002227C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		FA0AEE8C229BAB1B002227C1 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		FA0AEE8E229BAB1B002227C1 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		FA0AEE94229BAF09002227C1 /* Login.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = Login.storyboard; sourceTree = "<group>"; };
+		FA4EEBE2229BBE3400748A19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FA4EEBE4229BBFD600748A19 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		FA4EEBEA229BC70800748A19 /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		FA4EEBEC229BC71600748A19 /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		FA4EEBEF229C999700748A19 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
+		FA4EEBF1229C9E0600748A19 /* RoundedViews.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoundedViews.swift; sourceTree = "<group>"; };
+		FD4B8B5C76EDA5F9944B84C3 /* Pods-printbeatAdmin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-printbeatAdmin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-printbeatAdmin/Pods-printbeatAdmin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -29,17 +62,51 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				F3A45FAEDD84571ADCEA202E /* Pods_printbeat.framework in Frameworks */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA0AEE7D229BAB1B002227C1 /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				D3BC38CBA49CAD0913D687AE /* Pods_printbeatAdmin.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		27A66FAC922DFBE9369C229B /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				CCC01F9C244AEF606EF97253 /* Pods-printbeat.debug.xcconfig */,
+				C38EFF677FB092160BA3EF7B /* Pods-printbeat.release.xcconfig */,
+				FD4B8B5C76EDA5F9944B84C3 /* Pods-printbeatAdmin.debug.xcconfig */,
+				3484F32B6948F07D86B1962F /* Pods-printbeatAdmin.release.xcconfig */,
+			);
+			name = Pods;
+			sourceTree = "<group>";
+		};
+		703AFB356105A64EAD191B67 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				BCF25055704F1C0C9ED70B8F /* Pods_printbeat.framework */,
+				1D9C75F78E90890FEE087D22 /* Pods_printbeatAdmin.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		FA0AEE5E229BAB10002227C1 = {
 			isa = PBXGroup;
 			children = (
+				FA4EEBEE229C998700748A19 /* Utils */,
+				FA0AEE92229BAB9A002227C1 /* Shared */,
 				FA0AEE69229BAB10002227C1 /* printbeat */,
+				FA0AEE81229BAB1B002227C1 /* printbeatAdmin */,
 				FA0AEE68229BAB10002227C1 /* Products */,
+				27A66FAC922DFBE9369C229B /* Pods */,
+				703AFB356105A64EAD191B67 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -47,6 +114,7 @@
 			isa = PBXGroup;
 			children = (
 				FA0AEE67229BAB10002227C1 /* printbeat.app */,
+				FA0AEE80229BAB1B002227C1 /* printbeatAdmin.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -54,14 +122,79 @@
 		FA0AEE69229BAB10002227C1 /* printbeat */ = {
 			isa = PBXGroup;
 			children = (
+				FA4EEBE8229BC69000748A19 /* Model */,
+				FA4EEBE7229BC68B00748A19 /* View */,
+				FA4EEBE6229BC67E00748A19 /* Controller */,
+				FA4EEBE9229BC69400748A19 /* Storyboards */,
 				FA0AEE6A229BAB10002227C1 /* AppDelegate.swift */,
-				FA0AEE6C229BAB10002227C1 /* ViewController.swift */,
-				FA0AEE6E229BAB10002227C1 /* Main.storyboard */,
-				FA0AEE71229BAB10002227C1 /* Assets.xcassets */,
-				FA0AEE73229BAB10002227C1 /* LaunchScreen.storyboard */,
+				FA4EEBE2229BBE3400748A19 /* GoogleService-Info.plist */,
 				FA0AEE76229BAB10002227C1 /* Info.plist */,
 			);
 			path = printbeat;
+			sourceTree = "<group>";
+		};
+		FA0AEE81229BAB1B002227C1 /* printbeatAdmin */ = {
+			isa = PBXGroup;
+			children = (
+				FA0AEE82229BAB1B002227C1 /* AppDelegate.swift */,
+				FA0AEE84229BAB1B002227C1 /* ViewController.swift */,
+				FA0AEE86229BAB1B002227C1 /* Main.storyboard */,
+				FA0AEE8B229BAB1B002227C1 /* LaunchScreen.storyboard */,
+				FA4EEBE4229BBFD600748A19 /* GoogleService-Info.plist */,
+				FA0AEE8E229BAB1B002227C1 /* Info.plist */,
+			);
+			path = printbeatAdmin;
+			sourceTree = "<group>";
+		};
+		FA0AEE92229BAB9A002227C1 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
+				FA0AEE71229BAB10002227C1 /* Assets.xcassets */,
+			);
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		FA4EEBE6229BC67E00748A19 /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				FA0AEE6C229BAB10002227C1 /* ViewController.swift */,
+				FA4EEBEA229BC70800748A19 /* LoginVC.swift */,
+				FA4EEBEC229BC71600748A19 /* RegisterVC.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		FA4EEBE7229BC68B00748A19 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				FA4EEBF1229C9E0600748A19 /* RoundedViews.swift */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		FA4EEBE8229BC69000748A19 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		FA4EEBE9229BC69400748A19 /* Storyboards */ = {
+			isa = PBXGroup;
+			children = (
+				FA0AEE94229BAF09002227C1 /* Login.storyboard */,
+				FA0AEE6E229BAB10002227C1 /* Main.storyboard */,
+				FA0AEE73229BAB10002227C1 /* LaunchScreen.storyboard */,
+			);
+			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FA4EEBEE229C998700748A19 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				FA4EEBEF229C999700748A19 /* Constants.swift */,
+			);
+			path = Utils;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -71,9 +204,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = FA0AEE79229BAB10002227C1 /* Build configuration list for PBXNativeTarget "printbeat" */;
 			buildPhases = (
+				E40223C2524FAA57B051108F /* [CP] Check Pods Manifest.lock */,
 				FA0AEE63229BAB10002227C1 /* Sources */,
 				FA0AEE64229BAB10002227C1 /* Frameworks */,
 				FA0AEE65229BAB10002227C1 /* Resources */,
+				4A0C76F743E755F0D6906216 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -82,6 +217,25 @@
 			name = printbeat;
 			productName = printbeat;
 			productReference = FA0AEE67229BAB10002227C1 /* printbeat.app */;
+			productType = "com.apple.product-type.application";
+		};
+		FA0AEE7F229BAB1B002227C1 /* printbeatAdmin */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = FA0AEE8F229BAB1B002227C1 /* Build configuration list for PBXNativeTarget "printbeatAdmin" */;
+			buildPhases = (
+				654FFA65646C888EB5B20336 /* [CP] Check Pods Manifest.lock */,
+				FA0AEE7C229BAB1B002227C1 /* Sources */,
+				FA0AEE7D229BAB1B002227C1 /* Frameworks */,
+				FA0AEE7E229BAB1B002227C1 /* Resources */,
+				398B5A6553D8542D6D5F7786 /* [CP] Embed Pods Frameworks */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = printbeatAdmin;
+			productName = printbeatAdmin;
+			productReference = FA0AEE80229BAB1B002227C1 /* printbeatAdmin.app */;
 			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
@@ -95,6 +249,9 @@
 				ORGANIZATIONNAME = "Alex Vozniuk";
 				TargetAttributes = {
 					FA0AEE66229BAB10002227C1 = {
+						CreatedOnToolsVersion = 10.2;
+					};
+					FA0AEE7F229BAB1B002227C1 = {
 						CreatedOnToolsVersion = 10.2;
 					};
 				};
@@ -113,6 +270,7 @@
 			projectRoot = "";
 			targets = (
 				FA0AEE66229BAB10002227C1 /* printbeat */,
+				FA0AEE7F229BAB1B002227C1 /* printbeatAdmin */,
 			);
 		};
 /* End PBXProject section */
@@ -122,21 +280,168 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA4EEBE3229BBE3400748A19 /* GoogleService-Info.plist in Resources */,
+				FA0AEE95229BAF09002227C1 /* Login.storyboard in Resources */,
 				FA0AEE75229BAB10002227C1 /* LaunchScreen.storyboard in Resources */,
 				FA0AEE72229BAB10002227C1 /* Assets.xcassets in Resources */,
 				FA0AEE70229BAB10002227C1 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
+		FA0AEE7E229BAB1B002227C1 /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA0AEE8D229BAB1B002227C1 /* LaunchScreen.storyboard in Resources */,
+				FA0AEE93229BABBD002227C1 /* Assets.xcassets in Resources */,
+				FA0AEE88229BAB1B002227C1 /* Main.storyboard in Resources */,
+				FA4EEBE5229BBFD600748A19 /* GoogleService-Info.plist in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		398B5A6553D8542D6D5F7786 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-printbeatAdmin/Pods-printbeatAdmin-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+				"${BUILT_PRODUCTS_DIR}/CropViewController/CropViewController.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CropViewController.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-printbeatAdmin/Pods-printbeatAdmin-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		4A0C76F743E755F0D6906216 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-printbeat/Pods-printbeat-frameworks.sh",
+				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${BUILT_PRODUCTS_DIR}/BoringSSL-GRPC/openssl_grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/CodableFirebase/CodableFirebase.framework",
+				"${BUILT_PRODUCTS_DIR}/GTMSessionFetcher/GTMSessionFetcher.framework",
+				"${BUILT_PRODUCTS_DIR}/GoogleUtilities/GoogleUtilities.framework",
+				"${BUILT_PRODUCTS_DIR}/IQKeyboardManagerSwift/IQKeyboardManagerSwift.framework",
+				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
+				"${BUILT_PRODUCTS_DIR}/Protobuf/Protobuf.framework",
+				"${BUILT_PRODUCTS_DIR}/Stripe/Stripe.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-C++/grpcpp.framework",
+				"${BUILT_PRODUCTS_DIR}/gRPC-Core/grpc.framework",
+				"${BUILT_PRODUCTS_DIR}/leveldb-library/leveldb.framework",
+				"${BUILT_PRODUCTS_DIR}/nanopb/nanopb.framework",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/openssl_grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/CodableFirebase.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GTMSessionFetcher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/GoogleUtilities.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/IQKeyboardManagerSwift.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Protobuf.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Stripe.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpcpp.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/grpc.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/leveldb.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/nanopb.framework",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-printbeat/Pods-printbeat-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		654FFA65646C888EB5B20336 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-printbeatAdmin-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		E40223C2524FAA57B051108F /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-printbeat-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		FA0AEE63229BAB10002227C1 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FA4EEBF2229C9E0600748A19 /* RoundedViews.swift in Sources */,
+				FA4EEBF0229C999700748A19 /* Constants.swift in Sources */,
 				FA0AEE6D229BAB10002227C1 /* ViewController.swift in Sources */,
+				FA4EEBED229BC71600748A19 /* RegisterVC.swift in Sources */,
 				FA0AEE6B229BAB10002227C1 /* AppDelegate.swift in Sources */,
+				FA4EEBEB229BC70800748A19 /* LoginVC.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+		FA0AEE7C229BAB1B002227C1 /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				FA0AEE85229BAB1B002227C1 /* ViewController.swift in Sources */,
+				FA0AEE83229BAB1B002227C1 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -155,6 +460,22 @@
 			isa = PBXVariantGroup;
 			children = (
 				FA0AEE74229BAB10002227C1 /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+		FA0AEE86229BAB1B002227C1 /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA0AEE87229BAB1B002227C1 /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		FA0AEE8B229BAB1B002227C1 /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				FA0AEE8C229BAB1B002227C1 /* Base */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -280,6 +601,7 @@
 		};
 		FA0AEE7A229BAB10002227C1 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = CCC01F9C244AEF606EF97253 /* Pods-printbeat.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -298,6 +620,7 @@
 		};
 		FA0AEE7B229BAB10002227C1 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = C38EFF677FB092160BA3EF7B /* Pods-printbeat.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
@@ -308,6 +631,44 @@
 					"@executable_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.alexv.printbeat;
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+		FA0AEE90229BAB1B002227C1 /* Debug */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = FD4B8B5C76EDA5F9944B84C3 /* Pods-printbeatAdmin.debug.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7RD59XU3S8;
+				INFOPLIST_FILE = printbeatAdmin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alexv.printbeat-admin";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		FA0AEE91229BAB1B002227C1 /* Release */ = {
+			isa = XCBuildConfiguration;
+			baseConfigurationReference = 3484F32B6948F07D86B1962F /* Pods-printbeatAdmin.release.xcconfig */;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 7RD59XU3S8;
+				INFOPLIST_FILE = printbeatAdmin/Info.plist;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.alexv.printbeat-admin";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = "1,2";
@@ -331,6 +692,15 @@
 			buildConfigurations = (
 				FA0AEE7A229BAB10002227C1 /* Debug */,
 				FA0AEE7B229BAB10002227C1 /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		FA0AEE8F229BAB1B002227C1 /* Build configuration list for PBXNativeTarget "printbeatAdmin" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				FA0AEE90229BAB1B002227C1 /* Debug */,
+				FA0AEE91229BAB1B002227C1 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;

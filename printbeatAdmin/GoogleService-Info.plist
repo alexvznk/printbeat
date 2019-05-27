@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+	<key>CLIENT_ID</key>
+	<string>595992678290-3s52u3velk3vl5aef4i65q500b2bdvbn.apps.googleusercontent.com</string>
+	<key>REVERSED_CLIENT_ID</key>
+	<string>com.googleusercontent.apps.595992678290-3s52u3velk3vl5aef4i65q500b2bdvbn</string>
+	<key>API_KEY</key>
+	<string>AIzaSyCR2nsj6DVL-np05L0R4EtYRFmXkzr3A3w</string>
+	<key>GCM_SENDER_ID</key>
+	<string>595992678290</string>
+	<key>PLIST_VERSION</key>
+	<string>1</string>
+	<key>BUNDLE_ID</key>
+	<string>com.alexv.printbeat-admin</string>
+	<key>PROJECT_ID</key>
+	<string>printbeat-2f654</string>
+	<key>STORAGE_BUCKET</key>
+	<string>printbeat-2f654.appspot.com</string>
+	<key>IS_ADS_ENABLED</key>
+	<false></false>
+	<key>IS_ANALYTICS_ENABLED</key>
+	<false></false>
+	<key>IS_APPINVITE_ENABLED</key>
+	<true></true>
+	<key>IS_GCM_ENABLED</key>
+	<true></true>
+	<key>IS_SIGNIN_ENABLED</key>
+	<true></true>
+	<key>GOOGLE_APP_ID</key>
+	<string>1:595992678290:ios:fca9c626c8e2471c</string>
+	<key>DATABASE_URL</key>
+	<string>https://printbeat-2f654.firebaseio.com</string>
+</dict>
+</plist>

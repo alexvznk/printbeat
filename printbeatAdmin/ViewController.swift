@@ -1,6 +1,6 @@
 //
 //  ViewController.swift
-//  printbeat
+//  printbeatAdmin
 //
 //  Created by Alex on 5/26/19.
 //  Copyright © 2019 Alex Vozniuk. All rights reserved.
