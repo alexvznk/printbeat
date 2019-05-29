@@ -31,13 +31,13 @@
                                         <rect key="frame" x="0.0" y="30.5" width="374" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" textContentType="email"/>
                                     </textField>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="password" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PmU-SC-1Gx">
                                         <rect key="frame" x="0.0" y="67.5" width="374" height="30"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
-                                        <textInputTraits key="textInputTraits"/>
+                                        <textInputTraits key="textInputTraits" secureTextEntry="YES" textContentType="password"/>
                                     </textField>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="i4n-bh-yH2">
                                         <rect key="frame" x="0.0" y="104.5" width="374" height="34"/>
@@ -45,6 +45,9 @@
                                         <state key="normal" title="Forgot password?">
                                             <color key="titleColor" red="0.80784313730000001" green="0.3294117647" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
+                                        <connections>
+                                            <action selector="forgotPassClicked:" destination="76n-wB-afQ" eventType="touchUpInside" id="F1j-De-Zpp"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="rvS-eZ-hTZ" customClass="RoundedButton" customModule="printbeat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="145.5" width="374" height="36"/>
@@ -53,6 +56,9 @@
                                         <state key="normal" title="Log In">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="loginClicked:" destination="76n-wB-afQ" eventType="touchUpInside" id="agT-a9-xeK"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y4D-0E-nBR" customClass="RoundedButton" customModule="printbeat" customModuleProvider="target">
                                         <rect key="frame" x="0.0" y="188.5" width="374" height="36"/>
@@ -71,6 +77,9 @@
                                         <state key="normal" title="Continue as guest">
                                             <color key="titleColor" cocoaTouchSystemColor="darkTextColor"/>
                                         </state>
+                                        <connections>
+                                            <action selector="guestClicked:" destination="76n-wB-afQ" eventType="touchUpInside" id="Bx7-ew-lEg"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                             </stackView>
@@ -90,6 +99,11 @@
                         <viewLayoutGuide key="safeArea" id="vPK-0O-Jn3"/>
                     </view>
                     <navigationItem key="navigationItem" id="Jbu-f2-5Oj"/>
+                    <connections>
+                        <outlet property="activityIndicator" destination="b7X-s9-D6y" id="fNx-3g-ZlM"/>
+                        <outlet property="emailTxt" destination="SxR-ei-Kiu" id="PVZ-To-LdJ"/>
+                        <outlet property="passwordTxt" destination="PmU-SC-1Gx" id="DOL-E8-EUb"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UHp-OV-FcB" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -149,7 +163,7 @@
                                     </button>
                                 </subviews>
                             </stackView>
-                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="XDQ-6n-y5M">
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="XDQ-6n-y5M">
                                 <rect key="frame" x="188.5" y="379.5" width="37" height="37"/>
                                 <color key="color" red="0.85114233539999995" green="0.85114233539999995" blue="0.85114233539999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>

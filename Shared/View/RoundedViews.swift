@@ -22,3 +22,16 @@ class RoundedImageView: UIImageView {
         layer.cornerRadius = 5
     }
 }
+
+class RoundedView: UIView {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.cornerRadius = 10
+        layer.shadowColor = UIColor.black.cgColor
+//        layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        layer.shadowOffset = CGSize.zero
+        layer.shadowOpacity = 0.2
+        layer.shadowRadius = 10
+    }
+}
+

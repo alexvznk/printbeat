@@ -7,24 +7,50 @@
 //
 
 import UIKit
+import Firebase
 
 class LoginVC: UIViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
+    @IBOutlet weak var emailTxt: UITextField!
+    @IBOutlet weak var passwordTxt: UITextField!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    
+    @IBAction func forgotPassClicked(_ sender: Any) {
+        let forgotPasswordVC = ForgotPasswordVC(nibName: "ForgotPasswordVC", bundle: nil)
+        forgotPasswordVC.modalPresentationStyle = .overCurrentContext
+        forgotPasswordVC.modalTransitionStyle = .crossDissolve
 
-        // Do any additional setup after loading the view.
+        present(forgotPasswordVC, animated: true, completion: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    @IBAction func loginClicked(_ sender: Any) {
+        guard let email = emailTxt.text, !email.isEmpty,
+            let pass = passwordTxt.text, !pass.isEmpty else {
+                simpleAlert(title: "Error", message: "Please fill out all fields.")
+                return
+        }
+        
+        activityIndicator.startAnimating()
+        Auth.auth().signIn(withEmail: email, password: pass) { (result, error) in
+            if let error = error {
+                debugPrint(error)
+                self.handleFireAuthError(error: error)
+                self.activityIndicator.stopAnimating()
+                return
+            }
+            self.activityIndicator.stopAnimating()
+            print("Login Successful")
+            self.view.endEditing(true)
+            self.dismiss(animated: true, completion: nil)
+            
+        }
+        
+        
+        
     }
-    */
+    
+    @IBAction func guestClicked(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
 
 }

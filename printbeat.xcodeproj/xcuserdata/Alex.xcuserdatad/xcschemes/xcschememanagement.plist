@@ -6,13 +6,30 @@
 	<dict>
 		<key>printbeat.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>1</integer>
 		</dict>
 		<key>printbeatAdmin.xcscheme_^#shared#^_</key>
 		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>2</integer>
+		</dict>
+	</dict>
+	<key>SuppressBuildableAutocreation</key>
+	<dict>
+		<key>FA0AEE66229BAB10002227C1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
+		</dict>
+		<key>FA0AEE7F229BAB1B002227C1</key>
+		<dict>
+			<key>primary</key>
+			<true/>
 		</dict>
 	</dict>
 </dict>

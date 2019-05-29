@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="gTV-IL-0wX" customClass="CategoryCell" customModule="printbeat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="119" height="159"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="119" height="159"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="aerial_1" translatesAutoresizingMaskIntoConstraints="NO" id="sSo-u8-X1c" customClass="RoundedImageView" customModule="printbeat" customModuleProvider="target">
+                        <rect key="frame" x="0.0" y="0.0" width="119" height="123"/>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Category name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qtc-Vz-aZ8">
+                        <rect key="frame" x="8" y="131" width="103" height="20"/>
+                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="sSo-u8-X1c" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5jV-Qx-NdE"/>
+                <constraint firstItem="sSo-u8-X1c" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8qr-HM-lpV"/>
+                <constraint firstItem="qtc-Vz-aZ8" firstAttribute="top" secondItem="sSo-u8-X1c" secondAttribute="bottom" constant="8" id="GeR-Ag-msI"/>
+                <constraint firstAttribute="bottom" secondItem="qtc-Vz-aZ8" secondAttribute="bottom" constant="8" id="af8-fA-UDk"/>
+                <constraint firstAttribute="trailing" secondItem="qtc-Vz-aZ8" secondAttribute="trailing" constant="8" id="eam-MZ-vog"/>
+                <constraint firstItem="qtc-Vz-aZ8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="ibr-Tm-wLq"/>
+                <constraint firstAttribute="trailing" secondItem="sSo-u8-X1c" secondAttribute="trailing" id="qb9-FQ-Gfu"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <size key="customSize" width="119" height="159"/>
+            <connections>
+                <outlet property="categoryImg" destination="sSo-u8-X1c" id="TZV-7n-8Ag"/>
+                <outlet property="categoryLbl" destination="qtc-Vz-aZ8" id="am4-q3-06P"/>
+            </connections>
+            <point key="canvasLocation" x="148.55072463768118" y="124.88839285714285"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="aerial_1" width="1000" height="1333"/>
+    </resources>
+</document>
