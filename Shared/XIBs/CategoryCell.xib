@@ -11,43 +11,63 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
-        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="gTV-IL-0wX" customClass="CategoryCell" customModule="printbeat" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="119" height="159"/>
+        <collectionViewCell opaque="NO" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="categoryCell" id="gTV-IL-0wX" customClass="CategoryCell" customModule="printbeat" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="189" height="237"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="119" height="159"/>
+                <rect key="frame" x="0.0" y="0.0" width="189" height="237"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="aerial_1" translatesAutoresizingMaskIntoConstraints="NO" id="sSo-u8-X1c" customClass="RoundedImageView" customModule="printbeat" customModuleProvider="target">
-                        <rect key="frame" x="0.0" y="0.0" width="119" height="123"/>
-                    </imageView>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Category name" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="qtc-Vz-aZ8">
-                        <rect key="frame" x="8" y="131" width="103" height="20"/>
-                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
-                        <nil key="textColor"/>
-                        <nil key="highlightedColor"/>
-                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ovn-4V-EcF" userLabel="Content View">
+                        <rect key="frame" x="0.0" y="0.0" width="189" height="237"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VLk-Tp-3Dl">
+                                <rect key="frame" x="0.0" y="0.0" width="189" height="237"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="sSo-u8-X1c">
+                                        <rect key="frame" x="0.0" y="0.0" width="189" height="237"/>
+                                    </imageView>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category name" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" minimumFontSize="14" translatesAutoresizingMaskIntoConstraints="NO" id="qtc-Vz-aZ8">
+                                        <rect key="frame" x="20" y="188" width="149.5" height="29"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-DemiBold" family="Avenir Next" pointSize="21"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="qtc-Vz-aZ8" secondAttribute="bottom" constant="20" id="9nR-tZ-v2s"/>
+                                    <constraint firstItem="sSo-u8-X1c" firstAttribute="top" secondItem="VLk-Tp-3Dl" secondAttribute="top" id="NAF-LH-ckW"/>
+                                    <constraint firstItem="sSo-u8-X1c" firstAttribute="leading" secondItem="VLk-Tp-3Dl" secondAttribute="leading" id="U9H-dk-wtC"/>
+                                    <constraint firstAttribute="trailing" secondItem="sSo-u8-X1c" secondAttribute="trailing" id="WdS-Qt-dwT"/>
+                                    <constraint firstItem="qtc-Vz-aZ8" firstAttribute="leading" secondItem="VLk-Tp-3Dl" secondAttribute="leading" constant="20" id="cLX-Me-jtR"/>
+                                    <constraint firstAttribute="bottom" secondItem="sSo-u8-X1c" secondAttribute="bottom" id="vre-qy-xa0"/>
+                                </constraints>
+                            </view>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="VLk-Tp-3Dl" firstAttribute="top" secondItem="Ovn-4V-EcF" secondAttribute="top" id="OXq-Fk-Hg1"/>
+                            <constraint firstAttribute="trailing" secondItem="VLk-Tp-3Dl" secondAttribute="trailing" id="Ypv-Bm-RfO"/>
+                            <constraint firstItem="VLk-Tp-3Dl" firstAttribute="leading" secondItem="Ovn-4V-EcF" secondAttribute="leading" id="ZAv-uN-NNM"/>
+                            <constraint firstAttribute="bottom" secondItem="VLk-Tp-3Dl" secondAttribute="bottom" id="wqV-vM-Qvg"/>
+                        </constraints>
+                    </view>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="sSo-u8-X1c" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="5jV-Qx-NdE"/>
-                <constraint firstItem="sSo-u8-X1c" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="8qr-HM-lpV"/>
-                <constraint firstItem="qtc-Vz-aZ8" firstAttribute="top" secondItem="sSo-u8-X1c" secondAttribute="bottom" constant="8" id="GeR-Ag-msI"/>
-                <constraint firstAttribute="bottom" secondItem="qtc-Vz-aZ8" secondAttribute="bottom" constant="8" id="af8-fA-UDk"/>
-                <constraint firstAttribute="trailing" secondItem="qtc-Vz-aZ8" secondAttribute="trailing" constant="8" id="eam-MZ-vog"/>
-                <constraint firstItem="qtc-Vz-aZ8" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="8" id="ibr-Tm-wLq"/>
-                <constraint firstAttribute="trailing" secondItem="sSo-u8-X1c" secondAttribute="trailing" id="qb9-FQ-Gfu"/>
+                <constraint firstAttribute="trailing" secondItem="Ovn-4V-EcF" secondAttribute="trailing" id="5qh-TQ-yIW"/>
+                <constraint firstAttribute="bottom" secondItem="Ovn-4V-EcF" secondAttribute="bottom" id="Gmf-zN-73q"/>
+                <constraint firstItem="Ovn-4V-EcF" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="g6X-L7-25u"/>
+                <constraint firstItem="Ovn-4V-EcF" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="keI-UV-rg9"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
-            <size key="customSize" width="119" height="159"/>
+            <size key="customSize" width="189" height="237"/>
             <connections>
                 <outlet property="categoryImg" destination="sSo-u8-X1c" id="TZV-7n-8Ag"/>
                 <outlet property="categoryLbl" destination="qtc-Vz-aZ8" id="am4-q3-06P"/>
             </connections>
-            <point key="canvasLocation" x="148.55072463768118" y="124.88839285714285"/>
+            <point key="canvasLocation" x="199.27536231884059" y="150.33482142857142"/>
         </collectionViewCell>
     </objects>
-    <resources>
-        <image name="aerial_1" width="1000" height="1333"/>
-    </resources>
 </document>

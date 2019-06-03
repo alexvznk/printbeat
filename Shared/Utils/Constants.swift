@@ -24,6 +24,7 @@ struct AppImages {
 
 struct Identifiers {
     static let CategoryCell = "categoryCell"
+    static let ProductCell = "productCell"
 }
 
 struct Segues {

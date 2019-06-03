@@ -18,7 +18,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         // Override point for customization after application launch.
         FirebaseApp.configure()
+        setupNavigationFonts()
         return true
+    }
+    
+    func setupNavigationFonts() {
+        guard let font = UIFont(name: "AvenirNext-Medium", size: 17) else { return }
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font : font], for: .normal)
+        UIBarButtonItem.appearance().setTitleTextAttributes([NSAttributedString.Key.font : font], for: .highlighted)
     }
 
     func applicationWillResignActive(_ application: UIApplication) {

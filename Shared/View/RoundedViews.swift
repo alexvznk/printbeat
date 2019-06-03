@@ -28,10 +28,10 @@ class RoundedView: UIView {
         super.awakeFromNib()
         layer.cornerRadius = 10
         layer.shadowColor = UIColor.black.cgColor
-//        layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        layer.shadowOffset = CGSize(width: 0, height: 2.0)
         layer.shadowOffset = CGSize.zero
         layer.shadowOpacity = 0.2
-        layer.shadowRadius = 10
+        layer.shadowRadius = 4
     }
 }
 

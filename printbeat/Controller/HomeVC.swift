@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Foundation
 import Firebase
 
 class HomeVC: UIViewController {
@@ -14,19 +15,41 @@ class HomeVC: UIViewController {
     @IBOutlet weak var loginOutBtn: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var loginOutButton: UIBarButtonItem!
     
     var categories = [Category]()
+    var selectedCategory: Category!
+    var db: Firestore!
+    var listener: ListenerRegistration!
     
+
     override func viewDidLoad() {
         super.viewDidLoad()
-        let category1 = Category.init(name: "City", id: "hg31231hh", imgUrl: "https://images.unsplash.com/photo-1558948449-307dc049201b?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60", isActive: true, timeStamp: Timestamp())
-        let category2 = Category.init(name: "Art", id: "hg31231hh", imgUrl: "https://images.unsplash.com/photo-1558794046-53b28597cdc4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60", isActive: true, timeStamp: Timestamp())
-        categories.append(category1)
-        categories.append(category2)
-        
+        db = Firestore.firestore()
+        setupCollectionView()
+        setupInitialAnonymousUser()
+        setupNavigationBar()
+    }
+    
+    func setupNavigationBar() {
+        loginOutBtn.setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "AvenirNext-Medium", size: 17)!], for: UIControl.State.normal)
+        loginOutBtn.setTitleTextAttributes([NSAttributedString.Key.font : UIFont(name: "AvenirNext-Medium", size: 17)!], for: UIControl.State.selected)
+        let logoContainer = UIView(frame: CGRect(x: 0, y: 0, width: 100, height: 32))
+        let imageView = UIImageView(frame: CGRect(x: 0, y: 0, width: 100, height: 32))
+        imageView.contentMode = .scaleAspectFit
+        let image = UIImage(named: "logo_printbeat")
+        imageView.image = image
+        logoContainer.addSubview(imageView)
+        navigationItem.titleView = logoContainer
+    }
+    
+    func setupCollectionView() {
         collectionView.delegate = self
         collectionView.dataSource = self
         collectionView.register(UINib(nibName: "CategoryCell", bundle: nil), forCellWithReuseIdentifier: Identifiers.CategoryCell)
+    }
+    
+    func setupInitialAnonymousUser() {
         if Auth.auth().currentUser == nil {
             Auth.auth().signInAnonymously { (result, error) in
                 if let error = error {
@@ -37,18 +60,64 @@ class HomeVC: UIViewController {
         }
     }
     
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setCategoriesListener()
+        if let user = Auth.auth().currentUser, !user.isAnonymous {
+            loginOutBtn.title = "Logout"
+        } else {
+            loginOutBtn.title = "Login"
+        }
+        
+    }
+
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        listener.remove()
+        categories.removeAll()
+        collectionView.reloadData()
+    }
+    
+    func setCategoriesListener() {
+        listener = db.categories.addSnapshotListener({ (snap, error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                return
+            }
+            
+            snap?.documentChanges.forEach({ (change) in
+                let data = change.document.data()
+                let category = Category.init(data: data)
+                
+                switch change.type {
+                case .added:
+                    self.onDocumentAdded(change: change, category: category)
+                case .modified:
+                    self.onDocumentModified(change: change, category: category)
+                case .removed:
+                    self.onDocumentRemoved(change: change)
+                }
+            })
+            
+        })
+    }
+
+    
     @IBAction func loginOutClicked(_ sender: Any) {
         guard let user = Auth.auth().currentUser else { return }
         if user.isAnonymous {
             presentLoginVC()
         } else {
             do {
+                activityIndicator.startAnimating()
                 try Auth.auth().signOut()
                 Auth.auth().signInAnonymously { (result, error) in
                     if let error = error {
                         debugPrint(error)
+                        self.activityIndicator.stopAnimating()
                         self.handleFireAuthError(error: error)
                     }
+                    self.activityIndicator.stopAnimating()
                     self.presentLoginVC()
                 }
             } catch {
@@ -58,15 +127,7 @@ class HomeVC: UIViewController {
         }
     }
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        if let user = Auth.auth().currentUser, !user.isAnonymous {
-            loginOutBtn.title = "Logout"
-        } else {
-            loginOutBtn.title = "Login"
-        }
-        
-    }
+    
     
     func presentLoginVC() {
         let storyboard = UIStoryboard(name: Storyboard.LoginStoryboard, bundle: nil)
@@ -78,6 +139,32 @@ class HomeVC: UIViewController {
 }
 
 extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollectionViewDelegateFlowLayout {
+    
+    func onDocumentAdded(change: DocumentChange, category: Category) {
+        let newIndex = Int(change.newIndex)
+        categories.insert(category, at: newIndex)
+        collectionView.insertItems(at: [IndexPath(item: newIndex, section: 0)])
+    }
+    
+    func onDocumentModified(change: DocumentChange, category: Category) {
+        if change.newIndex == change.oldIndex {
+            let index = Int(change.newIndex)
+            categories[index] = category
+            collectionView.reloadItems(at: [IndexPath(item: index, section: 0)])
+        } else {
+            let oldIndex = Int(change.oldIndex)
+            let newIndex = Int(change.newIndex)
+            categories.remove(at: oldIndex)
+            categories.insert(category, at: newIndex)
+            collectionView.moveItem(at: IndexPath(item: oldIndex, section: 0), to: IndexPath(item: newIndex, section: 0))
+        }
+    }
+    
+    func onDocumentRemoved(change: DocumentChange) {
+        let oldIndex = Int(change.oldIndex)
+        categories.remove(at: oldIndex)
+        collectionView.deleteItems(at: [IndexPath(item: oldIndex, section: 0)])
+    }
    
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return categories.count
@@ -93,12 +180,70 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
 
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         let width = view.frame.width
-        let cellWidth = (width - 50) / 2
-        let cellHeight = cellWidth * 1.5
+        let cellWidth = (width - 60) / 2
+        let cellHeight = cellWidth * 1.2
         
         return CGSize(width: cellWidth, height: cellHeight)
         
     }
     
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        selectedCategory = categories[indexPath.item]
+        performSegue(withIdentifier: Segues.ToProducts, sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.ToProducts {
+            if let destination = segue.destination as? ProductsVC {
+                destination.category = selectedCategory
+            }
+        }
+    }
+    
 }
 
+
+//Prior code
+
+//    func fetchDocument() {
+//        let docRef = db.collection("categories").document("rS4DGnQrog0W7RJAlfTS")
+//        docRef.addSnapshotListener { (snap, error) in
+//            guard let data = snap?.data() else { return }
+//            self.categories.removeAll()
+//            let newCategory = Category.init(data: data)
+//            self.categories.append(newCategory)
+//            self.collectionView.reloadData()
+//        }
+//
+//        docRef.getDocument { (snap, error) in
+//            guard let data = snap?.data() else { return }
+//            let newCategory = Category.init(data: data)
+//            self.categories.append(newCategory)
+//            self.collectionView.reloadData()
+//        }
+//    }
+
+//    func fetchCollection() {
+//        let collectionRef = db.collection("categories")
+//
+//        listener = collectionRef.addSnapshotListener { (snap, error) in
+//            guard let documents = snap?.documents else { return }
+//            self.categories.removeAll()
+//            for document in documents {
+//                let data = document.data()
+//                let newCategory = Category.init(data: data)
+//                self.categories.append(newCategory)
+//            }
+//            self.collectionView.reloadData()
+//        }
+//
+//        collectionRef.getDocuments { (snap, error) in
+//            guard let documents = snap?.documents else { return }
+//            for document in documents {
+//                let data = document.data()
+//                let newCategory = Category.init(data: data)
+//                self.categories.append(newCategory)
+//            }
+//            self.collectionView.reloadData()
+//        }
+//    }

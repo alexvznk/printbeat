@@ -10,7 +10,7 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--HomeVC-->
+        <!--Categories-->
         <scene sceneID="tne-QT-ifu">
             <objects>
                 <viewController id="BYZ-38-t0r" customClass="HomeVC" customModule="printbeat" customModuleProvider="target" sceneMemberID="viewController">
@@ -18,14 +18,14 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="glB-h1-C1B">
-                                <rect key="frame" x="20" y="88" width="374" height="808"/>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="glB-h1-C1B">
+                                <rect key="frame" x="0.0" y="88" width="414" height="808"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="GQZ-IW-usE">
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="20" minimumInteritemSpacing="20" id="GQZ-IW-usE">
                                     <size key="itemSize" width="50" height="50"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="20" maxX="0.0" maxY="0.0"/>
+                                    <inset key="sectionInset" minX="20" minY="20" maxX="20" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells/>
                             </collectionView>
@@ -37,25 +37,36 @@
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="glB-h1-C1B" secondAttribute="trailing" constant="20" id="9eR-Pa-gpb"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="glB-h1-C1B" secondAttribute="trailing" id="9eR-Pa-gpb"/>
                             <constraint firstItem="glB-h1-C1B" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" id="bQc-aq-7Oj"/>
                             <constraint firstAttribute="bottom" secondItem="glB-h1-C1B" secondAttribute="bottom" id="iBQ-bC-3ZS"/>
-                            <constraint firstItem="glB-h1-C1B" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="20" id="oOw-0i-cx1"/>
+                            <constraint firstItem="glB-h1-C1B" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="oOw-0i-cx1"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
-                    <navigationItem key="navigationItem" id="wnx-hs-Ap7">
+                    <navigationItem key="navigationItem" title="Categories" id="wnx-hs-Ap7">
+                        <barButtonItem key="backBarButtonItem" title="Back" id="L1q-d8-shx"/>
                         <barButtonItem key="leftBarButtonItem" title="Login" id="vFi-jH-Kdq">
-                            <color key="tintColor" red="0.25490196079999999" green="0.27058823529999998" blue="0.31372549020000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                             <connections>
                                 <action selector="loginOutClicked:" destination="BYZ-38-t0r" id="fei-e3-zYO"/>
                             </connections>
                         </barButtonItem>
+                        <rightBarButtonItems>
+                            <barButtonItem image="bar_button_star" id="Pl7-PN-H7c">
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </barButtonItem>
+                            <barButtonItem title="Item" image="bar_button_cart" id="3b4-ZQ-RcM">
+                                <inset key="largeContentSizeImageInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
                     </navigationItem>
                     <connections>
                         <outlet property="activityIndicator" destination="9tx-Vs-6EO" id="MqF-SF-dvq"/>
                         <outlet property="collectionView" destination="glB-h1-C1B" id="XLl-f4-i7e"/>
                         <outlet property="loginOutBtn" destination="vFi-jH-Kdq" id="Vbd-XO-eeQ"/>
+                        <outlet property="loginOutButton" destination="vFi-jH-Kdq" id="LFO-Og-pBc"/>
                         <segue destination="jkH-CS-TxJ" kind="show" identifier="toProductsVC" id="Cbr-VP-1OR"/>
                     </connections>
                 </viewController>
@@ -63,7 +74,7 @@
             </objects>
             <point key="canvasLocation" x="852.17391304347836" y="89.732142857142847"/>
         </scene>
-        <!--ProductsVC-->
+        <!--Products-->
         <scene sceneID="AUs-EA-Ob2">
             <objects>
                 <viewController id="jkH-CS-TxJ" customClass="ProductsVC" customModule="printbeat" customModuleProvider="target" sceneMemberID="viewController">
@@ -72,19 +83,29 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="mff-IC-Qxh">
-                                <rect key="frame" x="20" y="88" width="374" height="808"/>
+                                <rect key="frame" x="10" y="88" width="394" height="808"/>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                         <constraints>
                             <constraint firstAttribute="bottom" secondItem="mff-IC-Qxh" secondAttribute="bottom" id="39y-Vz-zSt"/>
-                            <constraint firstItem="86U-J5-6Ne" firstAttribute="trailing" secondItem="mff-IC-Qxh" secondAttribute="trailing" constant="20" id="3UQ-uI-8ZG"/>
+                            <constraint firstItem="86U-J5-6Ne" firstAttribute="trailing" secondItem="mff-IC-Qxh" secondAttribute="trailing" constant="10" id="3UQ-uI-8ZG"/>
                             <constraint firstItem="mff-IC-Qxh" firstAttribute="top" secondItem="86U-J5-6Ne" secondAttribute="top" id="kWp-eY-08h"/>
-                            <constraint firstItem="mff-IC-Qxh" firstAttribute="leading" secondItem="86U-J5-6Ne" secondAttribute="leading" constant="20" id="lAo-Pa-zh2"/>
+                            <constraint firstItem="mff-IC-Qxh" firstAttribute="leading" secondItem="86U-J5-6Ne" secondAttribute="leading" constant="10" id="lAo-Pa-zh2"/>
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="86U-J5-6Ne"/>
                     </view>
+                    <navigationItem key="navigationItem" title="Products" id="OLM-3e-S9Y">
+                        <rightBarButtonItems>
+                            <barButtonItem image="bar_button_star" id="8eB-AB-rU0">
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </barButtonItem>
+                            <barButtonItem image="bar_button_cart" id="Iy0-2T-az0">
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="mff-IC-Qxh" id="sch-xh-zNc"/>
                     </connections>
@@ -101,10 +122,17 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="TGb-gY-Hjt">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="19"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <fontDescription key="fontDescription" name="Avenir-Black" family="Avenir" pointSize="27"/>
+                        </textAttributes>
                     </navigationBar>
                     <nil name="viewControllers"/>
                     <connections>
-                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="Bmc-AP-0nz"/>
+                        <segue destination="BYZ-38-t0r" kind="relationship" relationship="rootViewController" id="3yJ-ql-pT8"/>
                     </connections>
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="2CE-I9-l0p" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -112,4 +140,8 @@
             <point key="canvasLocation" x="35" y="90"/>
         </scene>
     </scenes>
+    <resources>
+        <image name="bar_button_cart" width="27" height="24"/>
+        <image name="bar_button_star" width="26" height="26"/>
+    </resources>
 </document>

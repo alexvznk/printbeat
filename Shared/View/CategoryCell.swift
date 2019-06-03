@@ -22,8 +22,20 @@ class CategoryCell: UICollectionViewCell {
     func configureCell(category: Category) {
         categoryLbl.text = category.name
         if let url = URL(string: category.imgUrl) {
-            categoryImg.kf.setImage(with: url)
+            let options: KingfisherOptionsInfo = [KingfisherOptionsInfoItem.transition(.fade(0.1))]
+            categoryImg.kf.indicatorType = .activity
+            categoryImg.kf.setImage(with: url, options: options)
         }
+        contentView.layer.cornerRadius = 10
+        contentView.layer.borderWidth = 2.0
+        contentView.layer.borderColor = UIColor.clear.cgColor
+        contentView.layer.masksToBounds = true
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        layer.shadowRadius = 4
+        layer.shadowOpacity = 0.4
+        layer.masksToBounds = false
+        layer.shadowPath = UIBezierPath(roundedRect: self.bounds, cornerRadius: contentView.layer.cornerRadius).cgPath
         
     }
 
