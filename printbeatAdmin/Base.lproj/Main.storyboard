@@ -80,6 +80,7 @@
                         <outlet property="loginOutBtn" destination="QjF-ja-AV8" id="XvR-2o-tNy"/>
                         <outlet property="loginOutButton" destination="QjF-ja-AV8" id="toU-cq-zH6"/>
                         <segue destination="xos-06-CE0" kind="show" identifier="toAddEditCategory" id="PJj-rm-zo6"/>
+                        <segue destination="9l5-nI-Gak" kind="show" identifier="toProductsVC" id="C1J-q7-Idp"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ghQ-GF-7aU" sceneMemberID="firstResponder"/>
@@ -161,6 +162,7 @@
                     </view>
                     <connections>
                         <outlet property="activityIndicator" destination="PqY-4B-tGZ" id="3Za-Bw-NfV"/>
+                        <outlet property="addBtn" destination="ChT-S0-3qx" id="uy3-NA-RWn"/>
                         <outlet property="categoryImg" destination="mRA-pb-XOY" id="wEd-s6-HKm"/>
                         <outlet property="nameTxt" destination="YRA-fN-5eJ" id="WyU-V8-Zyw"/>
                     </connections>
@@ -169,8 +171,70 @@
             </objects>
             <point key="canvasLocation" x="1945" y="82"/>
         </scene>
+        <!--Admin ProductsVC-->
+        <scene sceneID="BMa-jA-LKz">
+            <objects>
+                <viewController id="9l5-nI-Gak" customClass="AdminProductsVC" customModule="printbeatAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6eD-FH-Opm">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="twJ-Se-NpR">
+                                <rect key="frame" x="10" y="88" width="394" height="808"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="twJ-Se-NpR" firstAttribute="top" secondItem="p7N-dd-RMZ" secondAttribute="top" id="B6H-CV-fP1"/>
+                            <constraint firstAttribute="bottom" secondItem="twJ-Se-NpR" secondAttribute="bottom" id="GY0-0n-ptw"/>
+                            <constraint firstItem="twJ-Se-NpR" firstAttribute="leading" secondItem="p7N-dd-RMZ" secondAttribute="leading" constant="10" id="c6E-Ve-S9n"/>
+                            <constraint firstItem="p7N-dd-RMZ" firstAttribute="trailing" secondItem="twJ-Se-NpR" secondAttribute="trailing" constant="10" id="hL1-pd-zzk"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="p7N-dd-RMZ"/>
+                    </view>
+                    <navigationItem key="navigationItem" id="DUy-Dx-iJR">
+                        <rightBarButtonItems>
+                            <barButtonItem image="bar_button_star" id="akp-dg-Zw0">
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </barButtonItem>
+                            <barButtonItem image="bar_button_cart" id="Och-Lz-g3I">
+                                <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                            </barButtonItem>
+                        </rightBarButtonItems>
+                    </navigationItem>
+                    <connections>
+                        <outlet property="tableView" destination="twJ-Se-NpR" id="jzQ-jT-V0i"/>
+                        <segue destination="J14-K5-wEe" kind="show" identifier="toAddEditProduct" id="lfG-Pu-Pe1"/>
+                        <segue destination="xos-06-CE0" kind="show" identifier="toEditCategory" id="5XP-BP-b5j"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="guo-sl-LEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1109" y="806"/>
+        </scene>
+        <!--Add Edit ProductsVC-->
+        <scene sceneID="qkA-rr-98Z">
+            <objects>
+                <viewController id="J14-K5-wEe" customClass="AddEditProductsVC" customModule="printbeatAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="Z7r-jR-tja">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <viewLayoutGuide key="safeArea" id="USF-v7-8nd"/>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="sWi-0M-XEi" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1977" y="806"/>
+        </scene>
     </scenes>
     <resources>
+        <image name="bar_button_cart" width="27" height="24"/>
+        <image name="bar_button_star" width="26" height="26"/>
         <image name="camera" width="66" height="54"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="PJj-rm-zo6"/>
+    </inferredMetricsTieBreakers>
 </document>

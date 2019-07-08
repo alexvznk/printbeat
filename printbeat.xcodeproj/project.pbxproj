@@ -56,6 +56,8 @@
 		FA4EEC0F229E005C00748A19 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4EEC0C229E005C00748A19 /* ProductCell.xib */; };
 		FA4EEC10229E005C00748A19 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4EEC0C229E005C00748A19 /* ProductCell.xib */; };
 		FAC3AB6D22D2F59B0073CC6D /* AddEditCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3AB6C22D2F59B0073CC6D /* AddEditCategoryVC.swift */; };
+		FAC3AB7022D3DC870073CC6D /* AdminProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3AB6F22D3DC870073CC6D /* AdminProductsVC.swift */; };
+		FAC3AB7222D3DFF60073CC6D /* AddEditProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3AB7122D3DFF60073CC6D /* AddEditProductsVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -99,6 +101,8 @@
 		FA4EEC0B229E005C00748A19 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		FA4EEC0C229E005C00748A19 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
 		FAC3AB6C22D2F59B0073CC6D /* AddEditCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditCategoryVC.swift; sourceTree = "<group>"; };
+		FAC3AB6F22D3DC870073CC6D /* AdminProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminProductsVC.swift; sourceTree = "<group>"; };
+		FAC3AB7122D3DFF60073CC6D /* AddEditProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditProductsVC.swift; sourceTree = "<group>"; };
 		FD4B8B5C76EDA5F9944B84C3 /* Pods-printbeatAdmin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-printbeatAdmin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-printbeatAdmin/Pods-printbeatAdmin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -285,6 +289,8 @@
 			children = (
 				FA0AEE84229BAB1B002227C1 /* AdminHomeVC.swift */,
 				FAC3AB6C22D2F59B0073CC6D /* AddEditCategoryVC.swift */,
+				FAC3AB6F22D3DC870073CC6D /* AdminProductsVC.swift */,
+				FAC3AB7122D3DFF60073CC6D /* AddEditProductsVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -555,12 +561,14 @@
 				FA1EF5AC22A4FB04000B85A2 /* Firebase+Utils.swift in Sources */,
 				FA0AEE83229BAB1B002227C1 /* AppDelegate.swift in Sources */,
 				FA1EF5A822A4F9A4000B85A2 /* HomeVC.swift in Sources */,
+				FAC3AB7022D3DC870073CC6D /* AdminProductsVC.swift in Sources */,
 				FA4EEBFC229D205400748A19 /* Category.swift in Sources */,
 				FAC3AB6D22D2F59B0073CC6D /* AddEditCategoryVC.swift in Sources */,
 				FA1EF5AB22A4FB02000B85A2 /* Extensions.swift in Sources */,
 				FA4EEC00229D218C00748A19 /* CategoryCell.swift in Sources */,
 				FA1EF5A522A4E990000B85A2 /* ProductDetailVC.swift in Sources */,
 				FA4EEC0E229E005C00748A19 /* ProductCell.swift in Sources */,
+				FAC3AB7222D3DFF60073CC6D /* AddEditProductsVC.swift in Sources */,
 				FA4EEC0A229DFF6500748A19 /* Product.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

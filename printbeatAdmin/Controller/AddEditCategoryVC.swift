@@ -10,10 +10,13 @@ import UIKit
 import Firebase
 
 class AddEditCategoryVC: UIViewController {
+    
+    var categoryToEdit: Category?
 
     @IBOutlet weak var nameTxt: UITextField!
     @IBOutlet weak var categoryImg: RoundedImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
+    @IBOutlet weak var addBtn: UIButton!
     
     
     override func viewDidLoad() {
@@ -22,6 +25,15 @@ class AddEditCategoryVC: UIViewController {
         tap.numberOfTapsRequired = 1
         categoryImg.isUserInteractionEnabled = true
         categoryImg.addGestureRecognizer(tap)
+        
+        if let category = categoryToEdit {
+            nameTxt.text = category.name
+            addBtn.setTitle("Save Changes", for: .normal)
+            if let url = URL(string: category.imgUrl) {
+                categoryImg.contentMode = .scaleAspectFill
+                categoryImg.kf.setImage(with: url)
+            }
+        }
     }
     
     @objc func imageTapped(_ tap: UITapGestureRecognizer) {
@@ -73,8 +85,15 @@ class AddEditCategoryVC: UIViewController {
     func uploadDocument(url: String) {
         var docRef: DocumentReference!
         var category = Category.init(name: nameTxt.text!, id: "", imgUrl: url, timeStamp: Timestamp())
-        docRef = Firestore.firestore().collection("categories").document()
-        category.id = docRef.documentID
+        
+        if let newCategory = categoryToEdit {
+            docRef = Firestore.firestore().collection("categories").document(newCategory.id)
+            category.id = newCategory.id
+        } else {
+            docRef = Firestore.firestore().collection("categories").document()
+            category.id = docRef.documentID
+        }
+        
         let data = Category.modelToData(category: category)
         docRef.setData(data, merge: true) { (error) in
             if let error = error {
