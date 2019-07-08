@@ -20,6 +20,7 @@ class AdminHomeVC: HomeVC {
     
     @objc func addCategory() {
         //segue to category
+        performSegue(withIdentifier: Segues.ToAddEditCategory, sender: self)
     }
 
 

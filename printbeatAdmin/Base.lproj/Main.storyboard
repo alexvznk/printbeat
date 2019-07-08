@@ -79,11 +79,98 @@
                         <outlet property="collectionView" destination="GT4-Gu-nU3" id="0vH-OI-y8y"/>
                         <outlet property="loginOutBtn" destination="QjF-ja-AV8" id="XvR-2o-tNy"/>
                         <outlet property="loginOutButton" destination="QjF-ja-AV8" id="toU-cq-zH6"/>
+                        <segue destination="xos-06-CE0" kind="show" identifier="toAddEditCategory" id="PJj-rm-zo6"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ghQ-GF-7aU" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1109" y="82"/>
         </scene>
+        <!--Add Edit CategoryVC-->
+        <scene sceneID="uhn-76-Gc1">
+            <objects>
+                <viewController id="xos-06-CE0" customClass="AddEditCategoryVC" customModule="printbeatAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="6cs-Gy-5Ov">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to add category image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wZ-Bi-h1X">
+                                <rect key="frame" x="20" y="193.5" width="374" height="23.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Category Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YRA-fN-5eJ">
+                                <rect key="frame" x="20" y="143.5" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="mRA-pb-XOY" customClass="RoundedImageView" customModule="printbeatAdmin" customModuleProvider="target">
+                                <rect key="frame" x="107" y="237" width="200" height="200"/>
+                                <color key="backgroundColor" red="0.85114233539999995" green="0.85114233539999995" blue="0.85114233539999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="t4E-Ox-i4L"/>
+                                    <constraint firstAttribute="width" constant="200" id="vQo-c9-R5J"/>
+                                </constraints>
+                            </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="PqY-4B-tGZ">
+                                <rect key="frame" x="188.5" y="457" width="37" height="37"/>
+                                <color key="color" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChT-S0-3qx" customClass="RoundedButton" customModule="printbeatAdmin" customModuleProvider="target">
+                                <rect key="frame" x="20" y="802" width="374" height="40"/>
+                                <color key="backgroundColor" red="0.85114233539999995" green="0.85114233539999995" blue="0.85114233539999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="8xQ-Wr-wI0"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Add Category">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="categoryClicked:" destination="xos-06-CE0" eventType="touchUpInside" id="Y8e-dC-sfZ"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Category Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Lx1-9Z-CKH">
+                                <rect key="frame" x="145.5" y="108" width="123" height="23.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="mRA-pb-XOY" firstAttribute="top" secondItem="5wZ-Bi-h1X" secondAttribute="bottom" constant="20" id="0eo-uc-ZH0"/>
+                            <constraint firstItem="ChT-S0-3qx" firstAttribute="leading" secondItem="u8Q-UY-7Nn" secondAttribute="leading" constant="20" id="4mL-ra-bCm"/>
+                            <constraint firstItem="PqY-4B-tGZ" firstAttribute="centerX" secondItem="6cs-Gy-5Ov" secondAttribute="centerX" id="63W-37-s7z"/>
+                            <constraint firstItem="5wZ-Bi-h1X" firstAttribute="leading" secondItem="u8Q-UY-7Nn" secondAttribute="leading" constant="20" id="8p3-Y0-k5d"/>
+                            <constraint firstItem="u8Q-UY-7Nn" firstAttribute="trailing" secondItem="YRA-fN-5eJ" secondAttribute="trailing" constant="20" id="AQp-mi-bfy"/>
+                            <constraint firstItem="YRA-fN-5eJ" firstAttribute="leading" secondItem="u8Q-UY-7Nn" secondAttribute="leading" constant="20" id="Ay6-HB-cEk"/>
+                            <constraint firstItem="5wZ-Bi-h1X" firstAttribute="top" secondItem="YRA-fN-5eJ" secondAttribute="bottom" constant="20" id="HQY-IF-cux"/>
+                            <constraint firstItem="PqY-4B-tGZ" firstAttribute="top" secondItem="mRA-pb-XOY" secondAttribute="bottom" constant="20" id="PKq-Gl-3nu"/>
+                            <constraint firstItem="u8Q-UY-7Nn" firstAttribute="trailing" secondItem="ChT-S0-3qx" secondAttribute="trailing" constant="20" id="RMH-om-LFV"/>
+                            <constraint firstItem="mRA-pb-XOY" firstAttribute="centerX" secondItem="6cs-Gy-5Ov" secondAttribute="centerX" id="TNS-ka-vxv"/>
+                            <constraint firstItem="YRA-fN-5eJ" firstAttribute="top" secondItem="Lx1-9Z-CKH" secondAttribute="bottom" constant="12" id="Zad-Ze-M2l"/>
+                            <constraint firstItem="Lx1-9Z-CKH" firstAttribute="centerX" secondItem="6cs-Gy-5Ov" secondAttribute="centerX" id="dBR-Xq-OIh"/>
+                            <constraint firstItem="Lx1-9Z-CKH" firstAttribute="top" secondItem="u8Q-UY-7Nn" secondAttribute="top" constant="20" id="gMG-Ok-rgl"/>
+                            <constraint firstItem="u8Q-UY-7Nn" firstAttribute="trailing" secondItem="5wZ-Bi-h1X" secondAttribute="trailing" constant="20" id="pxA-ek-APl"/>
+                            <constraint firstItem="u8Q-UY-7Nn" firstAttribute="bottom" secondItem="ChT-S0-3qx" secondAttribute="bottom" constant="20" id="vfo-HO-T8x"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="u8Q-UY-7Nn"/>
+                    </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="PqY-4B-tGZ" id="3Za-Bw-NfV"/>
+                        <outlet property="categoryImg" destination="mRA-pb-XOY" id="wEd-s6-HKm"/>
+                        <outlet property="nameTxt" destination="YRA-fN-5eJ" id="WyU-V8-Zyw"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="TDW-HB-jD0" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1945" y="82"/>
+        </scene>
     </scenes>
+    <resources>
+        <image name="camera" width="66" height="54"/>
+    </resources>
 </document>
