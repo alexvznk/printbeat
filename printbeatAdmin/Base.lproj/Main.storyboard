@@ -18,6 +18,7 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="huy-5T-15d">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                         <textAttributes key="titleTextAttributes">
                             <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
                         </textAttributes>
@@ -220,9 +221,101 @@
                     <view key="view" contentMode="scaleToFill" id="Z7r-jR-tja">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Product Name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Efp-q7-VkX">
+                                <rect key="frame" x="20" y="108" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Product Price" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="ICI-Ds-FTd">
+                                <rect key="frame" x="20" y="158" width="374" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                            </textField>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to add image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQS-sd-2pd">
+                                <rect key="frame" x="20" y="391.5" width="374" height="23.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6kK-nd-cmm">
+                                <rect key="frame" x="20" y="243.5" width="374" height="128"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="128" id="QQu-hU-dgF"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="camera" translatesAutoresizingMaskIntoConstraints="NO" id="M0S-X1-JeG" customClass="RoundedImageView" customModule="printbeatAdmin" customModuleProvider="target">
+                                <rect key="frame" x="107" y="427" width="200" height="200"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="200" id="HOT-wU-zfm"/>
+                                    <constraint firstAttribute="height" constant="200" id="OZu-Si-5te"/>
+                                </constraints>
+                            </imageView>
+                            <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5c4-gF-8TG">
+                                <rect key="frame" x="188.5" y="647" width="37" height="37"/>
+                                <color key="color" red="0.85114233539999995" green="0.85114233539999995" blue="0.85114233539999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </activityIndicatorView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hc1-Sy-tBf" customClass="RoundedButton" customModule="printbeatAdmin" customModuleProvider="target">
+                                <rect key="frame" x="20" y="802" width="374" height="40"/>
+                                <color key="backgroundColor" red="0.85114233539999995" green="0.85114233539999995" blue="0.85114233539999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="40" id="c48-oe-VHY"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <state key="normal" title="Add Product">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                </state>
+                                <connections>
+                                    <action selector="addBtnClicked:" destination="J14-K5-wEe" eventType="touchUpInside" id="0sF-yp-WCC"/>
+                                </connections>
+                            </button>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Description Below" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J32-Fw-kSb">
+                                <rect key="frame" x="113.5" y="208" width="187.5" height="23.5"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="USF-v7-8nd" firstAttribute="trailing" secondItem="6kK-nd-cmm" secondAttribute="trailing" constant="20" id="2v0-U7-T55"/>
+                            <constraint firstItem="JQS-sd-2pd" firstAttribute="leading" secondItem="USF-v7-8nd" secondAttribute="leading" constant="20" id="2yA-hW-Exk"/>
+                            <constraint firstItem="J32-Fw-kSb" firstAttribute="top" secondItem="ICI-Ds-FTd" secondAttribute="bottom" constant="20" id="3FU-TK-neD"/>
+                            <constraint firstItem="5c4-gF-8TG" firstAttribute="top" secondItem="M0S-X1-JeG" secondAttribute="bottom" constant="20" id="DBw-4e-MHC"/>
+                            <constraint firstItem="M0S-X1-JeG" firstAttribute="centerX" secondItem="Z7r-jR-tja" secondAttribute="centerX" id="Dwc-F9-Pl1"/>
+                            <constraint firstItem="USF-v7-8nd" firstAttribute="trailing" secondItem="ICI-Ds-FTd" secondAttribute="trailing" constant="20" id="Fdi-tQ-jdR"/>
+                            <constraint firstItem="USF-v7-8nd" firstAttribute="bottom" secondItem="hc1-Sy-tBf" secondAttribute="bottom" constant="20" id="GW0-pP-Kcb"/>
+                            <constraint firstItem="5c4-gF-8TG" firstAttribute="centerX" secondItem="Z7r-jR-tja" secondAttribute="centerX" id="GYo-fB-8sK"/>
+                            <constraint firstItem="Efp-q7-VkX" firstAttribute="top" secondItem="USF-v7-8nd" secondAttribute="top" constant="20" id="Lv1-my-q0H"/>
+                            <constraint firstItem="M0S-X1-JeG" firstAttribute="top" secondItem="JQS-sd-2pd" secondAttribute="bottom" constant="12" id="UM2-s4-j0P"/>
+                            <constraint firstItem="USF-v7-8nd" firstAttribute="trailing" secondItem="JQS-sd-2pd" secondAttribute="trailing" constant="20" id="Urj-zO-gmt"/>
+                            <constraint firstItem="USF-v7-8nd" firstAttribute="trailing" secondItem="Efp-q7-VkX" secondAttribute="trailing" constant="20" id="XXB-JP-NpP"/>
+                            <constraint firstItem="6kK-nd-cmm" firstAttribute="leading" secondItem="USF-v7-8nd" secondAttribute="leading" constant="20" id="Ybo-Tq-rsK"/>
+                            <constraint firstItem="USF-v7-8nd" firstAttribute="trailing" secondItem="hc1-Sy-tBf" secondAttribute="trailing" constant="20" id="dJu-LL-Pv8"/>
+                            <constraint firstItem="Efp-q7-VkX" firstAttribute="leading" secondItem="USF-v7-8nd" secondAttribute="leading" constant="20" id="fZz-68-vN2"/>
+                            <constraint firstItem="hc1-Sy-tBf" firstAttribute="leading" secondItem="USF-v7-8nd" secondAttribute="leading" constant="20" id="iTm-rm-arT"/>
+                            <constraint firstItem="JQS-sd-2pd" firstAttribute="top" secondItem="6kK-nd-cmm" secondAttribute="bottom" constant="20" id="kAR-G6-1eo"/>
+                            <constraint firstItem="ICI-Ds-FTd" firstAttribute="leading" secondItem="USF-v7-8nd" secondAttribute="leading" constant="20" id="nEp-8A-uhg"/>
+                            <constraint firstItem="J32-Fw-kSb" firstAttribute="centerX" secondItem="Z7r-jR-tja" secondAttribute="centerX" id="nFH-DD-Z14"/>
+                            <constraint firstItem="6kK-nd-cmm" firstAttribute="top" secondItem="J32-Fw-kSb" secondAttribute="bottom" constant="12" id="shN-V0-7XG"/>
+                            <constraint firstItem="ICI-Ds-FTd" firstAttribute="top" secondItem="Efp-q7-VkX" secondAttribute="bottom" constant="20" id="yHE-5s-GzH"/>
+                        </constraints>
                         <viewLayoutGuide key="safeArea" id="USF-v7-8nd"/>
                     </view>
+                    <connections>
+                        <outlet property="activityIndicator" destination="5c4-gF-8TG" id="dl7-Nb-uMl"/>
+                        <outlet property="addBtn" destination="hc1-Sy-tBf" id="uEJ-VP-A67"/>
+                        <outlet property="productDescTxt" destination="6kK-nd-cmm" id="Mks-2a-MNC"/>
+                        <outlet property="productImg" destination="M0S-X1-JeG" id="8r2-ff-DdG"/>
+                        <outlet property="productNameTxt" destination="Efp-q7-VkX" id="dtn-ws-bbx"/>
+                        <outlet property="productPriceTxt" destination="ICI-Ds-FTd" id="djd-Si-aaP"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWi-0M-XEi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

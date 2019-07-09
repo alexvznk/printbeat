@@ -25,7 +25,9 @@ class ProductCell: UITableViewCell {
         productTitle.text = product.name
         productPrice.text = String(product.price)
         if let url = URL(string: product.imgUrl) {
-            productImg.kf.setImage(with: url)
+            let options: KingfisherOptionsInfo = [KingfisherOptionsInfoItem.transition(.fade(0.1))]
+            productImg.kf.indicatorType = .activity
+            productImg.kf.setImage(with: url, options: options)
         }
     }
     

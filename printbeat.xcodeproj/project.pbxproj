@@ -288,8 +288,8 @@
 			isa = PBXGroup;
 			children = (
 				FA0AEE84229BAB1B002227C1 /* AdminHomeVC.swift */,
-				FAC3AB6C22D2F59B0073CC6D /* AddEditCategoryVC.swift */,
 				FAC3AB6F22D3DC870073CC6D /* AdminProductsVC.swift */,
+				FAC3AB6C22D2F59B0073CC6D /* AddEditCategoryVC.swift */,
 				FAC3AB7122D3DFF60073CC6D /* AddEditProductsVC.swift */,
 			);
 			path = Controller;
