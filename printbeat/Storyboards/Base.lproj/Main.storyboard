@@ -55,6 +55,10 @@
                         <rightBarButtonItems>
                             <barButtonItem image="bar_button_star" id="Pl7-PN-H7c">
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <connections>
+                                    <action selector="favoritesClicked:" destination="BYZ-38-t0r" id="Vgn-vI-pjy"/>
+                                    <segue destination="G9s-vX-g7o" kind="show" id="nly-hg-uJ5"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="bar_button_cart" id="3b4-ZQ-RcM">
                                 <inset key="largeContentSizeImageInsets" minX="0.0" minY="10" maxX="0.0" maxY="0.0"/>
@@ -100,6 +104,9 @@
                         <rightBarButtonItems>
                             <barButtonItem image="bar_button_star" id="8eB-AB-rU0">
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
+                                <connections>
+                                    <segue destination="G9s-vX-g7o" kind="show" id="ozp-zq-xVm"/>
+                                </connections>
                             </barButtonItem>
                             <barButtonItem image="bar_button_cart" id="Iy0-2T-az0">
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
@@ -112,7 +119,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4U-Nb-221" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1653.6231884057972" y="89.732142857142847"/>
+            <point key="canvasLocation" x="852" y="836"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Q68-Ge-3X9">
@@ -139,9 +146,43 @@
             </objects>
             <point key="canvasLocation" x="35" y="90"/>
         </scene>
+        <!--Favorites-->
+        <scene sceneID="E9C-4V-GLk">
+            <objects>
+                <viewController id="G9s-vX-g7o" customClass="FavoritesVC" customModule="printbeat" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="JkY-Td-GxL">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="4PN-rd-Jwz">
+                                <rect key="frame" x="10" y="88" width="394" height="808"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="cdU-ih-B7P" firstAttribute="trailing" secondItem="4PN-rd-Jwz" secondAttribute="trailing" constant="10" id="0TS-ec-k4p"/>
+                            <constraint firstItem="4PN-rd-Jwz" firstAttribute="top" secondItem="cdU-ih-B7P" secondAttribute="top" id="0yy-91-dLF"/>
+                            <constraint firstItem="4PN-rd-Jwz" firstAttribute="leading" secondItem="cdU-ih-B7P" secondAttribute="leading" constant="10" id="UKQ-0M-17M"/>
+                            <constraint firstAttribute="bottom" secondItem="4PN-rd-Jwz" secondAttribute="bottom" id="tt5-Vg-S9M"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="cdU-ih-B7P"/>
+                    </view>
+                    <navigationItem key="navigationItem" title="Favorites" id="mx5-wd-C5K"/>
+                    <connections>
+                        <outlet property="tableView" destination="4PN-rd-Jwz" id="hFS-8M-42E"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="CzZ-qf-Faa" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1728" y="449"/>
+        </scene>
     </scenes>
     <resources>
         <image name="bar_button_cart" width="27" height="24"/>
         <image name="bar_button_star" width="26" height="26"/>
     </resources>
+    <inferredMetricsTieBreakers>
+        <segue reference="ozp-zq-xVm"/>
+    </inferredMetricsTieBreakers>
 </document>

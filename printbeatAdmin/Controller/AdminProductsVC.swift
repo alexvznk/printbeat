@@ -26,6 +26,7 @@ class AdminProductsVC: ProductsVC {
     }
     
     @objc func newProduct() {
+        selectedProduct = nil
         performSegue(withIdentifier: Segues.ToAddEditProduct, sender: self)
     }
     

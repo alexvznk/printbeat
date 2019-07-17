@@ -58,6 +58,9 @@
 		FAC3AB6D22D2F59B0073CC6D /* AddEditCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3AB6C22D2F59B0073CC6D /* AddEditCategoryVC.swift */; };
 		FAC3AB7022D3DC870073CC6D /* AdminProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3AB6F22D3DC870073CC6D /* AdminProductsVC.swift */; };
 		FAC3AB7222D3DFF60073CC6D /* AddEditProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3AB7122D3DFF60073CC6D /* AddEditProductsVC.swift */; };
+		FAC3AB9222DF47730073CC6D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3AB9122DF47730073CC6D /* User.swift */; };
+		FAC3AB9522DF53AD0073CC6D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3AB9422DF53AD0073CC6D /* UserService.swift */; };
+		FAC3AB9722DF7FF20073CC6D /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3AB9622DF7FF20073CC6D /* FavoritesVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -103,6 +106,9 @@
 		FAC3AB6C22D2F59B0073CC6D /* AddEditCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditCategoryVC.swift; sourceTree = "<group>"; };
 		FAC3AB6F22D3DC870073CC6D /* AdminProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminProductsVC.swift; sourceTree = "<group>"; };
 		FAC3AB7122D3DFF60073CC6D /* AddEditProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditProductsVC.swift; sourceTree = "<group>"; };
+		FAC3AB9122DF47730073CC6D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
+		FAC3AB9422DF53AD0073CC6D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
+		FAC3AB9622DF7FF20073CC6D /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
 		FD4B8B5C76EDA5F9944B84C3 /* Pods-printbeatAdmin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-printbeatAdmin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-printbeatAdmin/Pods-printbeatAdmin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -172,6 +178,7 @@
 		FA0AEE69229BAB10002227C1 /* printbeat */ = {
 			isa = PBXGroup;
 			children = (
+				FAC3AB9322DF53990073CC6D /* Services */,
 				FA4EEBE6229BC67E00748A19 /* Controller */,
 				FA4EEBE9229BC69400748A19 /* Storyboards */,
 				FA0AEE6A229BAB10002227C1 /* AppDelegate.swift */,
@@ -221,6 +228,7 @@
 				FA4EEC04229DFEE900748A19 /* ProductsVC.swift */,
 				FA4EEBEA229BC70800748A19 /* LoginVC.swift */,
 				FA4EEBEC229BC71600748A19 /* RegisterVC.swift */,
+				FAC3AB9622DF7FF20073CC6D /* FavoritesVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -240,6 +248,7 @@
 			children = (
 				FA4EEBFA229D205400748A19 /* Category.swift */,
 				FA4EEC08229DFF6500748A19 /* Product.swift */,
+				FAC3AB9122DF47730073CC6D /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -293,6 +302,14 @@
 				FAC3AB7122D3DFF60073CC6D /* AddEditProductsVC.swift */,
 			);
 			path = Controller;
+			sourceTree = "<group>";
+		};
+		FAC3AB9322DF53990073CC6D /* Services */ = {
+			isa = PBXGroup;
+			children = (
+				FAC3AB9422DF53AD0073CC6D /* UserService.swift */,
+			);
+			path = Services;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -536,7 +553,9 @@
 				FA1EF5A422A4E990000B85A2 /* ProductDetailVC.swift in Sources */,
 				FA4EEBF0229C999700748A19 /* Constants.swift in Sources */,
 				FA4EEC05229DFEE900748A19 /* ProductsVC.swift in Sources */,
+				FAC3AB9222DF47730073CC6D /* User.swift in Sources */,
 				FA0AEE6D229BAB10002227C1 /* HomeVC.swift in Sources */,
+				FAC3AB9522DF53AD0073CC6D /* UserService.swift in Sources */,
 				FA4EEC0D229E005C00748A19 /* ProductCell.swift in Sources */,
 				FA4EEBED229BC71600748A19 /* RegisterVC.swift in Sources */,
 				FA4EEC09229DFF6500748A19 /* Product.swift in Sources */,
@@ -544,6 +563,7 @@
 				FA4EEBFB229D205400748A19 /* Category.swift in Sources */,
 				FA4EEBEB229BC70800748A19 /* LoginVC.swift in Sources */,
 				FA4EEBF8229CF08200748A19 /* ForgotPasswordVC.swift in Sources */,
+				FAC3AB9722DF7FF20073CC6D /* FavoritesVC.swift in Sources */,
 				FA4EEBF4229CE38900748A19 /* Extensions.swift in Sources */,
 				FA1EF59622A3AB31000B85A2 /* Firebase+Utils.swift in Sources */,
 				FA4EEBFF229D218C00748A19 /* CategoryCell.swift in Sources */,

@@ -9,7 +9,7 @@
 import UIKit
 import FirebaseFirestore
 
-class ProductsVC: UIViewController {
+class ProductsVC: UIViewController, ProductCellDelegate {
     
     @IBOutlet weak var tableView: UITableView!
     
@@ -38,7 +38,7 @@ class ProductsVC: UIViewController {
         products.removeAll()
     }
     
-    func setProductsListener() {
+    func setProductsListener() {        
         listener = db.products.whereField("categoryId", isEqualTo: category.id).addSnapshotListener({ (snap, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
@@ -88,6 +88,12 @@ class ProductsVC: UIViewController {
         products.remove(at: oldIndex)
         tableView.deleteRows(at: [IndexPath(row: oldIndex, section: 0)], with: .automatic)
     }
+    
+    func productFavorited(product: Product) {
+        UserService.favoriteSelected(product: product)
+        guard let index = products.firstIndex(of: product) else { return }
+        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+    }
 }
 
 
@@ -99,7 +105,7 @@ extension ProductsVC: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.ProductCell, for: indexPath) as? ProductCell {
-            cell.configureCell(product: products[indexPath.row])
+            cell.configureCell(product: products[indexPath.row], delegate: self)
             return cell
         }
         return UITableViewCell()
@@ -120,13 +126,4 @@ extension ProductsVC: UITableViewDelegate, UITableViewDataSource {
         impactFeedbackgenerator.impactOccurred()
         present(vc, animated: true, completion: nil)
     }
-    
 }
-
-
-
-//        let product1 = Product.init(name: "Landscape", id: "hgdjhgwf2", category: "Nature", price: 24.99, productDescription: "What a great landscape", imgUrl: "https://images.unsplash.com/photo-1501785888041-af3ef285b470?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60", timeStamp: Timestamp(), stock: 0)
-//        let product2 = Product.init(name: "City", id: "hgdjhgwf2", category: "Nature", price: 24.99, productDescription: "What a great landscape", imgUrl: "https://images.unsplash.com/photo-1477959858617-67f85cf4f1df?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=900&q=60", timeStamp: Timestamp(), stock: 0)
-//        products.append(product1)
-//        products.append(product2)
-

@@ -70,30 +70,51 @@ class RegisterVC: UIViewController {
         
         activityIndicator.startAnimating()
         
+//        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
+//             if let error = error {
+//                 debugPrint(error)
+//                 self.handleFireAuthError(error: error)
+//                 return
+//             }
+//            guard let fireUser = result?.user else { return }
+//            let user = User.init(id: fireUser.uid, email: email, username: username, stripeId: "")
+//            self.createFirestoreUser(user: user)
+//        }
+        
         guard let authUser = Auth.auth().currentUser else { return }
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
-        
+
         authUser.linkAndRetrieveData(with: credential) { (result, error) in
             if let error = error {
                 debugPrint(error)
                 self.handleFireAuthError(error: error)
                 return
             }
-            self.activityIndicator.stopAnimating()
-            print("Registered new user")
-            self.view.endEditing(true)
-            self.dismiss(animated: true, completion: nil)
+            guard let fireUser = result?.user else { return }
+            let user = User.init(id: fireUser.uid, email: email, username: username, stripeId: "")
+            self.createFirestoreUser(user: user)
         }
+        
     }
     
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    func createFirestoreUser(user: User) {
+        
+        let newUserRef = Firestore.firestore().collection("users").document(user.id)
+        let data = User.modelToData(user: user)
+        newUserRef.setData(data) { (error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "Error", message: "Can't create a user")
+                
+            } else {
+                self.view.endEditing(true)
+                self.dismiss(animated: true, completion: nil)
+            }
+            self.activityIndicator.stopAnimating()
+        }
+        
     }
-    */
+    
+    
 
 }

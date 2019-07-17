@@ -65,6 +65,9 @@ class HomeVC: UIViewController {
         setCategoriesListener()
         if let user = Auth.auth().currentUser, !user.isAnonymous {
             loginOutBtn.title = "Logout"
+            if UserService.userListener == nil {
+                UserService.getCurrentUser()
+            }
         } else {
             loginOutBtn.title = "Login"
         }
@@ -103,6 +106,11 @@ class HomeVC: UIViewController {
     }
 
     
+    @IBAction func favoritesClicked(_ sender: Any) {
+        performSegue(withIdentifier: Segues.ToFavorites, sender: self)
+    }
+    
+    
     @IBAction func loginOutClicked(_ sender: Any) {
         guard let user = Auth.auth().currentUser else { return }
         if user.isAnonymous {
@@ -111,6 +119,7 @@ class HomeVC: UIViewController {
             do {
                 activityIndicator.startAnimating()
                 try Auth.auth().signOut()
+                UserService.logoutUser()
                 Auth.auth().signInAnonymously { (result, error) in
                     if let error = error {
                         debugPrint(error)
@@ -201,49 +210,3 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     }
     
 }
-
-
-//Prior code
-
-//    func fetchDocument() {
-//        let docRef = db.collection("categories").document("rS4DGnQrog0W7RJAlfTS")
-//        docRef.addSnapshotListener { (snap, error) in
-//            guard let data = snap?.data() else { return }
-//            self.categories.removeAll()
-//            let newCategory = Category.init(data: data)
-//            self.categories.append(newCategory)
-//            self.collectionView.reloadData()
-//        }
-//
-//        docRef.getDocument { (snap, error) in
-//            guard let data = snap?.data() else { return }
-//            let newCategory = Category.init(data: data)
-//            self.categories.append(newCategory)
-//            self.collectionView.reloadData()
-//        }
-//    }
-
-//    func fetchCollection() {
-//        let collectionRef = db.collection("categories")
-//
-//        listener = collectionRef.addSnapshotListener { (snap, error) in
-//            guard let documents = snap?.documents else { return }
-//            self.categories.removeAll()
-//            for document in documents {
-//                let data = document.data()
-//                let newCategory = Category.init(data: data)
-//                self.categories.append(newCategory)
-//            }
-//            self.collectionView.reloadData()
-//        }
-//
-//        collectionRef.getDocuments { (snap, error) in
-//            guard let documents = snap?.documents else { return }
-//            for document in documents {
-//                let data = document.data()
-//                let newCategory = Category.init(data: data)
-//                self.categories.append(newCategory)
-//            }
-//            self.collectionView.reloadData()
-//        }
-//    }
