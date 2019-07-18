@@ -86,13 +86,25 @@ class ProductsVC: UIViewController, ProductCellDelegate {
     func onDocumentRemoved(change: DocumentChange) {
         let oldIndex = Int(change.oldIndex)
         products.remove(at: oldIndex)
-        tableView.deleteRows(at: [IndexPath(row: oldIndex, section: 0)], with: .automatic)
+        tableView.deleteRows(at: [IndexPath(row: oldIndex, section: 0)], with: .fade)
     }
     
     func productFavorited(product: Product) {
-        UserService.favoriteSelected(product: product)
-        guard let index = products.firstIndex(of: product) else { return }
-        tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        if UserService.isGuest {
+            simpleAlert(title: "Hello Friend!", message: "Please register/login to favorite a product.")
+        } else {
+            UserService.favoriteSelected(product: product)
+            guard let index = products.firstIndex(of: product) else { return }
+            tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
+        }
+    }
+    
+    @IBAction func favoritesClicked(_ sender: Any) {
+        if UserService.isGuest {
+            simpleAlert(title: "Hello Friend!", message: "Please register/login to use favorites.")
+        } else {
+            performSegue(withIdentifier: Segues.ToFavorites, sender: self)
+        }
     }
 }
 

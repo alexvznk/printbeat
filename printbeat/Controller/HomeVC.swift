@@ -107,7 +107,11 @@ class HomeVC: UIViewController {
 
     
     @IBAction func favoritesClicked(_ sender: Any) {
-        performSegue(withIdentifier: Segues.ToFavorites, sender: self)
+        if UserService.isGuest {
+            simpleAlert(title: "Hello Friend!", message: "Please register/login to use favorites.")
+        } else {
+            performSegue(withIdentifier: Segues.ToFavorites, sender: self)
+        }
     }
     
     
@@ -135,8 +139,6 @@ class HomeVC: UIViewController {
             }
         }
     }
-    
-    
     
     func presentLoginVC() {
         let storyboard = UIStoryboard(name: Storyboard.LoginStoryboard, bundle: nil)

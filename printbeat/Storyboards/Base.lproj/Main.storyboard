@@ -56,8 +56,7 @@
                             <barButtonItem image="bar_button_star" id="Pl7-PN-H7c">
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <connections>
-                                    <action selector="favoritesClicked:" destination="BYZ-38-t0r" id="Vgn-vI-pjy"/>
-                                    <segue destination="G9s-vX-g7o" kind="show" id="nly-hg-uJ5"/>
+                                    <action selector="favoritesClicked:" destination="BYZ-38-t0r" id="5Un-Y3-16y"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem title="Item" image="bar_button_cart" id="3b4-ZQ-RcM">
@@ -72,6 +71,7 @@
                         <outlet property="loginOutBtn" destination="vFi-jH-Kdq" id="Vbd-XO-eeQ"/>
                         <outlet property="loginOutButton" destination="vFi-jH-Kdq" id="LFO-Og-pBc"/>
                         <segue destination="jkH-CS-TxJ" kind="show" identifier="toProductsVC" id="Cbr-VP-1OR"/>
+                        <segue destination="G9s-vX-g7o" kind="show" identifier="toFavorites" id="3b6-dA-u8e"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -105,7 +105,7 @@
                             <barButtonItem image="bar_button_star" id="8eB-AB-rU0">
                                 <color key="tintColor" cocoaTouchSystemColor="darkTextColor"/>
                                 <connections>
-                                    <segue destination="G9s-vX-g7o" kind="show" id="ozp-zq-xVm"/>
+                                    <action selector="favoritesClicked:" destination="jkH-CS-TxJ" id="Zmq-nf-GcA"/>
                                 </connections>
                             </barButtonItem>
                             <barButtonItem image="bar_button_cart" id="Iy0-2T-az0">
@@ -115,6 +115,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="tableView" destination="mff-IC-Qxh" id="sch-xh-zNc"/>
+                        <segue destination="G9s-vX-g7o" kind="show" identifier="toFavorites" id="hll-hb-8hD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="z4U-Nb-221" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -183,6 +184,6 @@
         <image name="bar_button_star" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="ozp-zq-xVm"/>
+        <segue reference="hll-hb-8hD"/>
     </inferredMetricsTieBreakers>
 </document>
