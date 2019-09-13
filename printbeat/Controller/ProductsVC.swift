@@ -94,9 +94,11 @@ class ProductsVC: UIViewController, ProductCellDelegate {
             simpleAlert(title: "Hello Friend!", message: "Please register/login to favorite a product.")
         } else {
             UserService.favoriteSelected(product: product)
-            guard let index = products.firstIndex(of: product) else { return }
-            tableView.reloadRows(at: [IndexPath(row: index, section: 0)], with: .automatic)
         }
+    }
+    
+    func productAddToCart(product: Product) {
+        StripeCart.addItemToCart(item: product)
     }
     
     @IBAction func favoritesClicked(_ sender: Any) {

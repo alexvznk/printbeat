@@ -9,6 +9,8 @@
 /* Begin PBXBuildFile section */
 		D3BC38CBA49CAD0913D687AE /* Pods_printbeatAdmin.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1D9C75F78E90890FEE087D22 /* Pods_printbeatAdmin.framework */; };
 		F3A45FAEDD84571ADCEA202E /* Pods_printbeat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = BCF25055704F1C0C9ED70B8F /* Pods_printbeat.framework */; };
+		FA0986192324151E0089B3EC /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3AB9422DF53AD0073CC6D /* UserService.swift */; };
+		FA09861A232415790089B3EC /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3AB9122DF47730073CC6D /* User.swift */; };
 		FA0AEE6B229BAB10002227C1 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AEE6A229BAB10002227C1 /* AppDelegate.swift */; };
 		FA0AEE6D229BAB10002227C1 /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA0AEE6C229BAB10002227C1 /* HomeVC.swift */; };
 		FA0AEE70229BAB10002227C1 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FA0AEE6E229BAB10002227C1 /* Main.storyboard */; };
@@ -61,6 +63,11 @@
 		FAC3AB9222DF47730073CC6D /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3AB9122DF47730073CC6D /* User.swift */; };
 		FAC3AB9522DF53AD0073CC6D /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3AB9422DF53AD0073CC6D /* UserService.swift */; };
 		FAC3AB9722DF7FF20073CC6D /* FavoritesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3AB9622DF7FF20073CC6D /* FavoritesVC.swift */; };
+		FAEDD04C23256D750037F8C0 /* CheckoutVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDD04B23256D750037F8C0 /* CheckoutVC.swift */; };
+		FAEDD04F232575DA0037F8C0 /* CartItemCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDD04D232575DA0037F8C0 /* CartItemCell.swift */; };
+		FAEDD050232575DA0037F8C0 /* CartItemCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAEDD04E232575DA0037F8C0 /* CartItemCell.xib */; };
+		FAEDD053232583A50037F8C0 /* StripeCart.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDD052232583A50037F8C0 /* StripeCart.swift */; };
+		FAEDD058232757750037F8C0 /* StripeAPI.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAEDD057232757750037F8C0 /* StripeAPI.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -109,6 +116,11 @@
 		FAC3AB9122DF47730073CC6D /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		FAC3AB9422DF53AD0073CC6D /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 		FAC3AB9622DF7FF20073CC6D /* FavoritesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesVC.swift; sourceTree = "<group>"; };
+		FAEDD04B23256D750037F8C0 /* CheckoutVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CheckoutVC.swift; sourceTree = "<group>"; };
+		FAEDD04D232575DA0037F8C0 /* CartItemCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CartItemCell.swift; sourceTree = "<group>"; };
+		FAEDD04E232575DA0037F8C0 /* CartItemCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CartItemCell.xib; sourceTree = "<group>"; };
+		FAEDD052232583A50037F8C0 /* StripeCart.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeCart.swift; sourceTree = "<group>"; };
+		FAEDD057232757750037F8C0 /* StripeAPI.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StripeAPI.swift; sourceTree = "<group>"; };
 		FD4B8B5C76EDA5F9944B84C3 /* Pods-printbeatAdmin.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-printbeatAdmin.debug.xcconfig"; path = "Pods/Target Support Files/Pods-printbeatAdmin/Pods-printbeatAdmin.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -178,6 +190,7 @@
 		FA0AEE69229BAB10002227C1 /* printbeat */ = {
 			isa = PBXGroup;
 			children = (
+				FAEDD051232583920037F8C0 /* Stripe */,
 				FAC3AB9322DF53990073CC6D /* Services */,
 				FA4EEBE6229BC67E00748A19 /* Controller */,
 				FA4EEBE9229BC69400748A19 /* Storyboards */,
@@ -229,6 +242,7 @@
 				FA4EEBEA229BC70800748A19 /* LoginVC.swift */,
 				FA4EEBEC229BC71600748A19 /* RegisterVC.swift */,
 				FAC3AB9622DF7FF20073CC6D /* FavoritesVC.swift */,
+				FAEDD04B23256D750037F8C0 /* CheckoutVC.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -239,6 +253,7 @@
 				FA4EEBF1229C9E0600748A19 /* RoundedViews.swift */,
 				FA4EEBFD229D218C00748A19 /* CategoryCell.swift */,
 				FA4EEC0B229E005C00748A19 /* ProductCell.swift */,
+				FAEDD04D232575DA0037F8C0 /* CartItemCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -289,6 +304,7 @@
 			children = (
 				FA4EEC0C229E005C00748A19 /* ProductCell.xib */,
 				FA4EEBFE229D218C00748A19 /* CategoryCell.xib */,
+				FAEDD04E232575DA0037F8C0 /* CartItemCell.xib */,
 			);
 			path = XIBs;
 			sourceTree = "<group>";
@@ -310,6 +326,15 @@
 				FAC3AB9422DF53AD0073CC6D /* UserService.swift */,
 			);
 			path = Services;
+			sourceTree = "<group>";
+		};
+		FAEDD051232583920037F8C0 /* Stripe */ = {
+			isa = PBXGroup;
+			children = (
+				FAEDD052232583A50037F8C0 /* StripeCart.swift */,
+				FAEDD057232757750037F8C0 /* StripeAPI.swift */,
+			);
+			path = Stripe;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -399,6 +424,7 @@
 				FA4EEC0F229E005C00748A19 /* ProductCell.xib in Resources */,
 				FA1EF59A22A3B412000B85A2 /* Remachine.ttf in Resources */,
 				FA1EF5A622A4E990000B85A2 /* ProductDetailVC.xib in Resources */,
+				FAEDD050232575DA0037F8C0 /* CartItemCell.xib in Resources */,
 				FA4EEC01229D218C00748A19 /* CategoryCell.xib in Resources */,
 				FA0AEE95229BAF09002227C1 /* Login.storyboard in Resources */,
 				FA0AEE75229BAB10002227C1 /* LaunchScreen.storyboard in Resources */,
@@ -549,7 +575,9 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAEDD04C23256D750037F8C0 /* CheckoutVC.swift in Sources */,
 				FA4EEBF2229C9E0600748A19 /* RoundedViews.swift in Sources */,
+				FAEDD04F232575DA0037F8C0 /* CartItemCell.swift in Sources */,
 				FA1EF5A422A4E990000B85A2 /* ProductDetailVC.swift in Sources */,
 				FA4EEBF0229C999700748A19 /* Constants.swift in Sources */,
 				FA4EEC05229DFEE900748A19 /* ProductsVC.swift in Sources */,
@@ -565,8 +593,10 @@
 				FA4EEBF8229CF08200748A19 /* ForgotPasswordVC.swift in Sources */,
 				FAC3AB9722DF7FF20073CC6D /* FavoritesVC.swift in Sources */,
 				FA4EEBF4229CE38900748A19 /* Extensions.swift in Sources */,
+				FAEDD053232583A50037F8C0 /* StripeCart.swift in Sources */,
 				FA1EF59622A3AB31000B85A2 /* Firebase+Utils.swift in Sources */,
 				FA4EEBFF229D218C00748A19 /* CategoryCell.swift in Sources */,
+				FAEDD058232757750037F8C0 /* StripeAPI.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -580,6 +610,7 @@
 				FA1EF5A922A4FAA9000B85A2 /* RoundedViews.swift in Sources */,
 				FA1EF5AC22A4FB04000B85A2 /* Firebase+Utils.swift in Sources */,
 				FA0AEE83229BAB1B002227C1 /* AppDelegate.swift in Sources */,
+				FA0986192324151E0089B3EC /* UserService.swift in Sources */,
 				FA1EF5A822A4F9A4000B85A2 /* HomeVC.swift in Sources */,
 				FAC3AB7022D3DC870073CC6D /* AdminProductsVC.swift in Sources */,
 				FA4EEBFC229D205400748A19 /* Category.swift in Sources */,
@@ -587,6 +618,7 @@
 				FA1EF5AB22A4FB02000B85A2 /* Extensions.swift in Sources */,
 				FA4EEC00229D218C00748A19 /* CategoryCell.swift in Sources */,
 				FA1EF5A522A4E990000B85A2 /* ProductDetailVC.swift in Sources */,
+				FA09861A232415790089B3EC /* User.swift in Sources */,
 				FA4EEC0E229E005C00748A19 /* ProductCell.swift in Sources */,
 				FAC3AB7222D3DFF60073CC6D /* AddEditProductsVC.swift in Sources */,
 				FA4EEC0A229DFF6500748A19 /* Product.swift in Sources */,

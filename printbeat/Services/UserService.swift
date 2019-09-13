@@ -17,7 +17,6 @@ final class _UserService {
     let auth = Auth.auth()
     let db = Firestore.firestore()
     var userListener: ListenerRegistration? = nil
-    var favsListener: ListenerRegistration? = nil
     var isGuest: Bool {
         guard let authUser = auth.currentUser else {
             return true
@@ -43,17 +42,18 @@ final class _UserService {
         })
         
         let favsRef = userRef.collection("favorites")
-        favsListener = favsRef.addSnapshotListener({ (snap, error) in
+        
+        favsRef.getDocuments { (snap, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
                 return
             }
-            
+
             snap?.documents.forEach({ (document) in
                 let favorite = Product.init(data: document.data())
                 self.favorites.append(favorite)
             })
-        })
+        }
     }
     
     func favoriteSelected(product: Product) {
@@ -66,13 +66,12 @@ final class _UserService {
             let data = Product.modelToData(product: product)
             favsRef.document(product.id).setData(data)
         }
+        print(self.favorites.count)
     }
     
     func logoutUser() {
         userListener?.remove()
         userListener = nil
-        favsListener?.remove()
-        favsListener = nil
         user = User()
         favorites.removeAll()
     }    

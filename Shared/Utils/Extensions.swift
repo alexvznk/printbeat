@@ -47,3 +47,15 @@ extension AuthErrorCode {
         }
     }
 }
+
+extension Int {
+    func centsToFormattedCurrency() -> String {
+        let dollars = Double(self) / 100
+        let formatter = NumberFormatter()
+        formatter.numberStyle = .currency
+        if let dollarStr = formatter.string(from: dollars as NSNumber){
+            return dollarStr
+        }
+        return "$0.00"
+    }
+}
