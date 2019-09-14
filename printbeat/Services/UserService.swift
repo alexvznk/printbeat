@@ -66,7 +66,6 @@ final class _UserService {
             let data = Product.modelToData(product: product)
             favsRef.document(product.id).setData(data)
         }
-        print(self.favorites.count)
     }
     
     func logoutUser() {

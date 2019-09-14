@@ -46,10 +46,15 @@ final class _StripeCart {
         if let index = cartItems.firstIndex(of: item) {
             cartItems.remove(at: index)
         }
+        
+        if cartItems.isEmpty {
+            shippingFees = 0
+        }
     }
     
     func clearCart() {
         cartItems.removeAll()
+        shippingFees = 0
     }
    
 }

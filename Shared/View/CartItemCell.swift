@@ -17,6 +17,7 @@ class CartItemCell: UITableViewCell {
     @IBOutlet weak var productImg: RoundedImageView!
     @IBOutlet weak var productTitleLbl: UILabel!
     @IBOutlet weak var removeItemBtn: UIButton!
+    @IBOutlet weak var productPriceLbl: UILabel!
     
   
     private var item: Product!
@@ -33,9 +34,17 @@ class CartItemCell: UITableViewCell {
         let formatter = NumberFormatter()
         formatter.numberStyle = .currency
         
+        
         if let price = formatter.string(from: product.price as NSNumber) {
-            productTitleLbl.text = "\(product.name) \(price)"
+            productPriceLbl.text = price
         }
+        
+        productTitleLbl.text = product.name
+        
+        
+//        if let price = formatter.string(from: product.price as NSNumber) {
+//            productTitleLbl.text = "\(product.name) \(price)"
+//        }
         
         if let url = URL(string: product.imgUrl) {
             productImg.kf.setImage(with: url)

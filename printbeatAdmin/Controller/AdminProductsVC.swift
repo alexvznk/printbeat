@@ -18,6 +18,7 @@ class AdminProductsVC: ProductsVC {
         let editCategoryBtn = UIBarButtonItem(title: "Edit Category", style: .plain, target: self, action: #selector(editCategory))
         let newProductBtn = UIBarButtonItem(title: "+ Product", style: .plain, target: self, action: #selector(newProduct))
         navigationItem.setRightBarButtonItems([editCategoryBtn, newProductBtn], animated: false)
+        
 
     }
     

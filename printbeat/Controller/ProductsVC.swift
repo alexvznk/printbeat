@@ -98,6 +98,13 @@ class ProductsVC: UIViewController, ProductCellDelegate {
     }
     
     func productAddToCart(product: Product) {
+        let alert = UIAlertController(title: "", message: "Added to cart ✔️", preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+        let when = DispatchTime.now() + 0.5
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            alert.dismiss(animated: true, completion: nil)
+        }
+        
         StripeCart.addItemToCart(item: product)
     }
     

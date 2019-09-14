@@ -42,8 +42,15 @@ class ProductDetailVC: UIViewController {
 
     @IBAction func addToCartClicked(_ sender: Any) {
         StripeCart.addItemToCart(item: product)
-        dismiss(animated: true, completion: nil)
+        let alert = UIAlertController(title: "", message: "Added to cart ✔️", preferredStyle: .alert)
+        self.present(alert, animated: true, completion: nil)
+        let when = DispatchTime.now() + 0.5
+        DispatchQueue.main.asyncAfter(deadline: when) {
+            self.dismiss(animated: true, completion: nil)
+            self.dismiss(animated: true, completion: nil)
+        }
     }
+    
     
     @IBAction func keepShoppingClicked(_ sender: Any) {
         dismiss(animated: true, completion: nil)

@@ -22,13 +22,13 @@
                         <rect key="frame" x="8" y="8" width="359" height="166.5"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="aerial_8" translatesAutoresizingMaskIntoConstraints="NO" id="T9k-D9-bEX" customClass="RoundedImageView" customModule="printbeat" customModuleProvider="target">
-                                <rect key="frame" x="8" y="8" width="150.5" height="150.5"/>
+                                <rect key="frame" x="12" y="12" width="171" height="142.5"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" secondItem="T9k-D9-bEX" secondAttribute="height" multiplier="1:1" id="yGa-xz-Wdv"/>
+                                    <constraint firstAttribute="width" secondItem="T9k-D9-bEX" secondAttribute="height" multiplier="1.2:1" id="yGa-xz-Wdv"/>
                                 </constraints>
                             </imageView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="X6X-FX-Umj">
-                                <rect key="frame" x="321" y="8" width="30" height="30"/>
+                                <rect key="frame" x="317" y="12" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="30" id="PYY-ox-03h"/>
                                     <constraint firstAttribute="width" constant="30" id="gPk-hL-ABt"/>
@@ -38,46 +38,52 @@
                                     <action selector="favoriteClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="BjD-2N-v0k"/>
                                 </connections>
                             </button>
-                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Hmi-ew-xVM">
-                                <rect key="frame" x="178.5" y="34" width="122.5" height="99"/>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="4" translatesAutoresizingMaskIntoConstraints="NO" id="Hmi-ew-xVM">
+                                <rect key="frame" x="195" y="55" width="152" height="56.5"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Product title" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="s3M-Gf-g44">
-                                        <rect key="frame" x="14.5" y="0.0" width="93.5" height="23.5"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                        <rect key="frame" x="18" y="0.0" width="116.5" height="29"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="21"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="$99.99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z2k-mt-5w6">
-                                        <rect key="frame" x="25.5" y="31.5" width="71.5" height="30.5"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="22"/>
+                                        <rect key="frame" x="49" y="33" width="54" height="23.5"/>
+                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bqj-im-ByW" customClass="RoundedButton" customModule="printbeat" customModuleProvider="target">
-                                        <rect key="frame" x="13" y="70" width="97" height="29"/>
-                                        <color key="backgroundColor" red="0.80784313730000001" green="0.3294117647" blue="0.23921568630000001" alpha="1" colorSpace="calibratedRGB"/>
-                                        <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="15"/>
-                                        <inset key="contentEdgeInsets" minX="10" minY="4" maxX="10" maxY="4"/>
-                                        <state key="normal" title="Add to cart">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="addToCartClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="SFM-7s-Tjn"/>
-                                        </connections>
-                                    </button>
                                 </subviews>
                             </stackView>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Bqj-im-ByW" customClass="RoundedButton10" customModule="printbeat" customModuleProvider="target">
+                                <rect key="frame" x="207" y="119.5" width="128" height="35"/>
+                                <color key="backgroundColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="35" id="g0s-gp-e62"/>
+                                </constraints>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
+                                <inset key="contentEdgeInsets" minX="10" minY="4" maxX="10" maxY="4"/>
+                                <state key="normal" title="Add to cart">
+                                    <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <action selector="addToCartClicked:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="SFM-7s-Tjn"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="X6X-FX-Umj" secondAttribute="trailing" constant="8" id="BXj-J2-1Cw"/>
-                            <constraint firstAttribute="bottom" secondItem="T9k-D9-bEX" secondAttribute="bottom" constant="8" id="FG3-4a-QYn"/>
-                            <constraint firstItem="T9k-D9-bEX" firstAttribute="top" secondItem="27y-Vu-beC" secondAttribute="top" constant="8" id="Glh-Fc-RQR"/>
-                            <constraint firstItem="Hmi-ew-xVM" firstAttribute="leading" secondItem="T9k-D9-bEX" secondAttribute="trailing" constant="20" id="L8c-FK-cE2"/>
-                            <constraint firstItem="T9k-D9-bEX" firstAttribute="leading" secondItem="27y-Vu-beC" secondAttribute="leading" constant="8" id="Ria-jX-Eu4"/>
-                            <constraint firstItem="X6X-FX-Umj" firstAttribute="leading" secondItem="Hmi-ew-xVM" secondAttribute="trailing" constant="20" id="Sho-Eu-Mih"/>
+                            <constraint firstAttribute="trailing" secondItem="Bqj-im-ByW" secondAttribute="trailing" constant="24" id="9C0-Ly-m55"/>
+                            <constraint firstAttribute="trailing" secondItem="X6X-FX-Umj" secondAttribute="trailing" constant="12" id="BXj-J2-1Cw"/>
+                            <constraint firstAttribute="bottom" secondItem="T9k-D9-bEX" secondAttribute="bottom" constant="12" id="FG3-4a-QYn"/>
+                            <constraint firstItem="T9k-D9-bEX" firstAttribute="top" secondItem="27y-Vu-beC" secondAttribute="top" constant="12" id="Glh-Fc-RQR"/>
+                            <constraint firstAttribute="trailing" secondItem="Hmi-ew-xVM" secondAttribute="trailing" constant="12" id="HR2-2a-U6S"/>
+                            <constraint firstItem="Hmi-ew-xVM" firstAttribute="leading" secondItem="T9k-D9-bEX" secondAttribute="trailing" constant="12" id="L8c-FK-cE2"/>
+                            <constraint firstItem="T9k-D9-bEX" firstAttribute="leading" secondItem="27y-Vu-beC" secondAttribute="leading" constant="12" id="Ria-jX-Eu4"/>
+                            <constraint firstAttribute="bottom" secondItem="Bqj-im-ByW" secondAttribute="bottom" constant="12" id="YnB-9g-Lv5"/>
                             <constraint firstItem="Hmi-ew-xVM" firstAttribute="centerY" secondItem="27y-Vu-beC" secondAttribute="centerY" id="lAy-eg-9IM"/>
-                            <constraint firstItem="X6X-FX-Umj" firstAttribute="top" secondItem="27y-Vu-beC" secondAttribute="top" constant="8" id="unZ-fu-AsM"/>
+                            <constraint firstItem="X6X-FX-Umj" firstAttribute="top" secondItem="27y-Vu-beC" secondAttribute="top" constant="12" id="unZ-fu-AsM"/>
+                            <constraint firstItem="Bqj-im-ByW" firstAttribute="leading" secondItem="T9k-D9-bEX" secondAttribute="trailing" constant="24" id="zO5-FM-W1M"/>
                         </constraints>
                     </view>
                 </subviews>
@@ -101,6 +107,6 @@
     </objects>
     <resources>
         <image name="aerial_8" width="1000" height="1334"/>
-        <image name="empty_star" width="47" height="47"/>
+        <image name="empty_star" width="47" height="46"/>
     </resources>
 </document>
