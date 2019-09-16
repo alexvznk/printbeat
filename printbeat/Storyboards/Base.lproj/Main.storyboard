@@ -33,7 +33,7 @@
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" fixedFrame="YES" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="9tx-Vs-6EO">
                                 <rect key="frame" x="189" y="430" width="37" height="37"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <color key="color" white="0.66666666669999997" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
                         <color key="backgroundColor" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
@@ -232,6 +232,7 @@
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="RGb-kN-spU">
                                 <rect key="frame" x="188.5" y="759" width="37" height="37"/>
+                                <color key="color" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
                             </activityIndicatorView>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="equalSpacing" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="kVO-pR-AdZ">
                                 <rect key="frame" x="20" y="574" width="374" height="208"/>
@@ -421,6 +422,7 @@
                         <outlet property="creditCardImg" destination="fYo-De-IBs" id="XZo-JA-qne"/>
                         <outlet property="emptyCartLbl" destination="UXL-Cd-d98" id="9qm-66-SYy"/>
                         <outlet property="paymentMethodBtn" destination="wqd-ok-cMX" id="IzW-QC-95e"/>
+                        <outlet property="placeOrderBtn" destination="2SP-Wa-Ass" id="v5a-HT-P09"/>
                         <outlet property="processingFeeLbl" destination="TKV-fp-wGW" id="axF-hQ-P2i"/>
                         <outlet property="shippingCostLbl" destination="7UA-Pu-996" id="3uJ-dE-cWo"/>
                         <outlet property="shippingMethodBtn" destination="qZA-3L-px2" id="knF-80-XGq"/>
@@ -439,7 +441,7 @@
         <image name="bar_button_star" width="26" height="26"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="eds-eb-r5O"/>
+        <segue reference="WmB-7k-Xk5"/>
         <segue reference="3b6-dA-u8e"/>
     </inferredMetricsTieBreakers>
 </document>

@@ -23,6 +23,20 @@ class RoundedButton10: UIButton {
     }
 }
 
+class RoundedButton50: UIButton {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.cornerRadius = 25
+    }
+}
+
+class RoundedButton20: UIButton {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.cornerRadius = 20
+    }
+}
+
 class RoundedButtonWithBorder: UIButton {
     override func awakeFromNib() {
         super.awakeFromNib()

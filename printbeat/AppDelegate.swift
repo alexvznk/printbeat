@@ -9,6 +9,7 @@
 import UIKit
 import Firebase
 import Stripe
+import IQKeyboardManagerSwift
 
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
@@ -21,6 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         Stripe.setDefaultPublishableKey("pk_test_A2KAIZjZAfqEoZVyRh61uLz5004wQQmxbI")
         FirebaseApp.configure()
         setupNavigationFonts()
+        IQKeyboardManager.shared.enable = true
         return true
     }
     

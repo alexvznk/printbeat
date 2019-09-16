@@ -97,6 +97,7 @@
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <connections>
+                <outlet property="addToCartBtn" destination="Bqj-im-ByW" id="abS-EA-7M0"/>
                 <outlet property="favoriteBtn" destination="X6X-FX-Umj" id="jfW-x0-p3G"/>
                 <outlet property="productImg" destination="T9k-D9-bEX" id="zzU-Lw-jEy"/>
                 <outlet property="productPrice" destination="Z2k-mt-5w6" id="bj3-FS-Jdi"/>

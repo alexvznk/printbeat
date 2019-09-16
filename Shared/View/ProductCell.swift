@@ -20,6 +20,7 @@ class ProductCell: UITableViewCell {
     @IBOutlet weak var productTitle: UILabel!
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var favoriteBtn: UIButton!
+    @IBOutlet weak var addToCartBtn: UIButton!
     
     weak var delegate: ProductCellDelegate?
     var product: Product!

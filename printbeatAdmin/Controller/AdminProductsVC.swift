@@ -36,6 +36,16 @@ class AdminProductsVC: ProductsVC {
         performSegue(withIdentifier: Segues.ToAddEditProduct, sender: self)
     }
     
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        if let cell = tableView.dequeueReusableCell(withIdentifier: Identifiers.ProductCell, for: indexPath) as? ProductCell {
+            cell.configureCell(product: products[indexPath.row], delegate: self)
+            cell.favoriteBtn.isHidden = true
+            cell.addToCartBtn.isHidden = true
+            return cell
+        }
+        return UITableViewCell()
+    }
+    
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == Segues.ToAddEditProduct {
             if let destination = segue.destination as? AddEditProductsVC {

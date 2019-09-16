@@ -21,6 +21,7 @@ class CheckoutVC: UIViewController, CartItemDelegate {
     @IBOutlet weak var totalLbl: UILabel!
     @IBOutlet weak var creditCardImg: UIImageView!
     @IBOutlet weak var emptyCartLbl: UILabel!
+    @IBOutlet weak var placeOrderBtn: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     
@@ -32,9 +33,16 @@ class CheckoutVC: UIViewController, CartItemDelegate {
         tableView.delegate = self
         tableView.dataSource = self
         tableView.register(UINib(nibName: "CartItemCell", bundle: nil), forCellReuseIdentifier: Identifiers.CartItemCell)
-        setupPaymentInfo()
-        setupStripeConfig()
-        emptyCartLabelSetup()
+        if UserService.isGuest {
+            emptyCartLbl.text = "You have to be logged in to use the cart."
+            emptyCartLbl.isHidden = false
+            paymentMethodBtn.isEnabled = false
+            shippingMethodBtn.isEnabled = false
+        } else {
+            setupPaymentInfo()
+            setupStripeConfig()
+            emptyCartLabelSetup()
+        }
     }
     
     override func viewWillAppear(_ animated: Bool) {

@@ -18,8 +18,8 @@ struct StoryboardId {
 }
 
 struct AppImages {
-    static let GreenCheck = "green_check"
-    static let RedCheck = "red_check"
+    static let BlackError = "black_error"
+    static let BlackCheck = "black_check"
     static let FilledStar = "filled_star"
     static let EmptyStar = "empty_star"
 }

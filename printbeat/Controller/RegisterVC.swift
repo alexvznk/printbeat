@@ -37,9 +37,9 @@ class RegisterVC: UIViewController {
             }
             passCheckImg.isHidden = false
             if passwordTxt.text!.count > 7 {
-                passCheckImg.image = UIImage(named: AppImages.GreenCheck)
+                passCheckImg.image = UIImage(named: AppImages.BlackCheck)
             } else {
-                passCheckImg.image = UIImage(named: AppImages.RedCheck)
+                passCheckImg.image = UIImage(named: AppImages.BlackError)
             }
         } else {
             if confirmPassTxt.text == "" {
@@ -48,14 +48,17 @@ class RegisterVC: UIViewController {
             }
             confirmPassCheckImg.isHidden = false
             if confirmPassTxt.text == passwordTxt.text && confirmPassTxt.text!.count > 7 {
-               confirmPassCheckImg.image = UIImage(named: AppImages.GreenCheck)
+               confirmPassCheckImg.image = UIImage(named: AppImages.BlackCheck)
             } else {
-                confirmPassCheckImg.image = UIImage(named: AppImages.RedCheck)
+                confirmPassCheckImg.image = UIImage(named: AppImages.BlackError)
             }
         }
         
     }
     
+    @IBAction func cancelBtnClicked(_ sender: Any) {
+        dismiss(animated: true, completion: nil)
+    }
     @IBAction func registerBtnClicked(_ sender: Any) {
         guard let email = emailTxt.text, !email.isEmpty,
             let username = usernameTxt.text, !username.isEmpty,
@@ -108,7 +111,7 @@ class RegisterVC: UIViewController {
                 
             } else {
                 self.view.endEditing(true)
-                self.dismiss(animated: true, completion: nil)
+                self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
             }
             self.activityIndicator.stopAnimating()
         }

@@ -41,13 +41,17 @@ class ProductDetailVC: UIViewController {
     }
 
     @IBAction func addToCartClicked(_ sender: Any) {
-        StripeCart.addItemToCart(item: product)
-        let alert = UIAlertController(title: "", message: "Added to cart ✔️", preferredStyle: .alert)
-        self.present(alert, animated: true, completion: nil)
-        let when = DispatchTime.now() + 0.5
-        DispatchQueue.main.asyncAfter(deadline: when) {
-            self.dismiss(animated: true, completion: nil)
-            self.dismiss(animated: true, completion: nil)
+        if UserService.isGuest {
+            simpleAlert(title: "Hello Friend!", message: "Please register/login to use the cart.")
+        } else {
+            StripeCart.addItemToCart(item: product)
+            let alert = UIAlertController(title: "", message: "Added to cart ✔️", preferredStyle: .alert)
+            self.present(alert, animated: true, completion: nil)
+            let when = DispatchTime.now() + 0.5
+            DispatchQueue.main.asyncAfter(deadline: when) {
+                self.dismiss(animated: true, completion: nil)
+                self.dismiss(animated: true, completion: nil)
+            }
         }
     }
     
