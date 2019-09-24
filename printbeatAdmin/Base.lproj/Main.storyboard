@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="7zN-56-LUk">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0bF-Xf-tbL">
     <device id="retina6_1" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
@@ -10,10 +10,75 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Navigation Controller-->
+        <!--Purchases-->
+        <scene sceneID="yfg-Mf-s1M">
+            <objects>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UQo-98-2nV" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewController title="Purchases" id="6KP-lz-atw" customClass="PurchasesVC" customModule="printbeatAdmin" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="AuU-rW-F3u">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="G90-mk-lsC">
+                                <rect key="frame" x="10" y="88" width="394" height="725"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                            </tableView>
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Purchases" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4bw-Ly-06K">
+                                <rect key="frame" x="164" y="96" width="86.5" height="26"/>
+                                <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="19"/>
+                                <nil key="textColor"/>
+                                <nil key="highlightedColor"/>
+                            </label>
+                        </subviews>
+                        <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="G90-mk-lsC" firstAttribute="top" secondItem="36u-fT-h1j" secondAttribute="top" id="0we-s8-GDT"/>
+                            <constraint firstItem="36u-fT-h1j" firstAttribute="bottom" secondItem="G90-mk-lsC" secondAttribute="bottom" id="5Q0-ym-sGG"/>
+                            <constraint firstItem="4bw-Ly-06K" firstAttribute="top" secondItem="36u-fT-h1j" secondAttribute="top" constant="8" id="8B8-bf-21u"/>
+                            <constraint firstItem="36u-fT-h1j" firstAttribute="trailing" secondItem="G90-mk-lsC" secondAttribute="trailing" constant="10" id="Cey-ul-xlt"/>
+                            <constraint firstItem="G90-mk-lsC" firstAttribute="leading" secondItem="36u-fT-h1j" secondAttribute="leading" constant="10" id="gOk-L0-aFC"/>
+                            <constraint firstItem="4bw-Ly-06K" firstAttribute="centerX" secondItem="AuU-rW-F3u" secondAttribute="centerX" id="yQK-t5-J84"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="36u-fT-h1j"/>
+                        <variation key="default">
+                            <mask key="subviews">
+                                <exclude reference="4bw-Ly-06K"/>
+                            </mask>
+                        </variation>
+                    </view>
+                    <navigationItem key="navigationItem" title="Purchases" id="IxZ-Xm-FNu"/>
+                    <connections>
+                        <outlet property="tableView" destination="G90-mk-lsC" id="dgt-2t-FcE"/>
+                    </connections>
+                </viewController>
+            </objects>
+            <point key="canvasLocation" x="1108.6956521739132" y="805.58035714285711"/>
+        </scene>
+        <!--Tab Bar Controller-->
+        <scene sceneID="kSU-UC-qh9">
+            <objects>
+                <tabBarController id="0bF-Xf-tbL" sceneMemberID="viewController">
+                    <tabBar key="tabBar" contentMode="scaleAspectFill" insetsLayoutMarginsFromSafeArea="NO" id="uJF-aN-P4U">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="49"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="tintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="selectedImageTintColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBar>
+                    <connections>
+                        <segue destination="7zN-56-LUk" kind="relationship" relationship="viewControllers" id="fov-DM-BVN"/>
+                        <segue destination="6cl-cq-iEG" kind="relationship" relationship="viewControllers" id="m1y-gX-zfU"/>
+                    </connections>
+                </tabBarController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AJc-s2-zdq" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-959" y="492"/>
+        </scene>
+        <!--Store-->
         <scene sceneID="Z67-qb-4MX">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" id="7zN-56-LUk" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Store" image="home" id="RtX-or-Xw8"/>
                     <toolbarItems/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="huy-5T-15d">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
@@ -121,7 +186,7 @@
                                 <color key="color" red="0.93725490199999995" green="0.93725490199999995" blue="0.95686274510000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChT-S0-3qx" customClass="RoundedButton" customModule="printbeatAdmin" customModuleProvider="target">
-                                <rect key="frame" x="20" y="802" width="374" height="40"/>
+                                <rect key="frame" x="20" y="753" width="374" height="40"/>
                                 <color key="backgroundColor" red="0.85114233539999995" green="0.85114233539999995" blue="0.85114233539999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="8xQ-Wr-wI0"/>
@@ -212,7 +277,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="guo-sl-LEe" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1109" y="806"/>
+            <point key="canvasLocation" x="2018.840579710145" y="805.58035714285711"/>
         </scene>
         <!--Add Edit ProductsVC-->
         <scene sceneID="qkA-rr-98Z">
@@ -262,7 +327,7 @@
                                 <color key="color" red="0.85114233539999995" green="0.85114233539999995" blue="0.85114233539999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </activityIndicatorView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hc1-Sy-tBf" customClass="RoundedButton" customModule="printbeatAdmin" customModuleProvider="target">
-                                <rect key="frame" x="20" y="802" width="374" height="40"/>
+                                <rect key="frame" x="20" y="753" width="374" height="40"/>
                                 <color key="backgroundColor" red="0.85114233539999995" green="0.85114233539999995" blue="0.85114233539999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="c48-oe-VHY"/>
@@ -319,13 +384,39 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="sWi-0M-XEi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1977" y="806"/>
+            <point key="canvasLocation" x="2886.9565217391305" y="805.58035714285711"/>
+        </scene>
+        <!--Purchases-->
+        <scene sceneID="oGB-HZ-Ge7">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="6cl-cq-iEG" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="Purchases" image="shopping-bag" id="Tea-HM-G66">
+                        <color key="badgeColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="aEP-3f-Ar5">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="19"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="6KP-lz-atw" kind="relationship" relationship="rootViewController" id="vIV-Ta-uUG"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dl6-yS-aGA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="198.55072463768118" y="805.58035714285711"/>
         </scene>
     </scenes>
     <resources>
         <image name="bar_button_cart" width="27" height="24"/>
         <image name="bar_button_star" width="26" height="26"/>
         <image name="camera" width="66" height="54"/>
+        <image name="home" width="25" height="25"/>
+        <image name="shopping-bag" width="25" height="25"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="PJj-rm-zo6"/>

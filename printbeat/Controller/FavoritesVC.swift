@@ -7,11 +7,50 @@
 //
 
 import UIKit
+import FirebaseFirestore
 
 class FavoritesVC: ProductsVC {
+    
+    var favoritesListener: ListenerRegistration!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        setFavoritesListener()
+    }
+    
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        favoritesListener.remove()
+    }
+    
+    func setFavoritesListener() {
+        favoritesListener = db.collection("products").addSnapshotListener({ (snap, error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                return
+            }
+            
+            snap?.documentChanges.forEach({ (change) in
+                let data = change.document.data()
+                let product = Product.init(data: data)
+                
+                switch change.type {
+                case .added:
+                    return
+                case .modified:
+                self.db.collection("users").document(UserService.user.id).collection("favorites").document(product.id).setData(data)
+                    
+                case .removed:
+                self.db.collection("users").document(UserService.user.id).collection("favorites").document(product.id).delete()
+                    UserService.favorites.removeAll{$0 == product}
+
+                }
+            })
+        })
     }
     
     override func setProductsListener() {

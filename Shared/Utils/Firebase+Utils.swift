@@ -16,4 +16,8 @@ extension Firestore {
     var products: Query {
         return collection("products").order(by: "timeStamp", descending: true)
     }
+    
+    var purchases: Query {
+        return collection("purchases").order(by: "timeStamp", descending: true)
+    }
 }

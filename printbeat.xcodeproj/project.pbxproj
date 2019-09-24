@@ -57,6 +57,16 @@
 		FA4EEC0E229E005C00748A19 /* ProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FA4EEC0B229E005C00748A19 /* ProductCell.swift */; };
 		FA4EEC0F229E005C00748A19 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4EEC0C229E005C00748A19 /* ProductCell.xib */; };
 		FA4EEC10229E005C00748A19 /* ProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FA4EEC0C229E005C00748A19 /* ProductCell.xib */; };
+		FAB8C5A5233065C0008133CE /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8C5A4233065C0008133CE /* Purchase.swift */; };
+		FAB8C5A6233065C0008133CE /* Purchase.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8C5A4233065C0008133CE /* Purchase.swift */; };
+		FAB8C5A9233159C6008133CE /* PurchasesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8C5A8233159C6008133CE /* PurchasesVC.swift */; };
+		FAB8C5AC23315A25008133CE /* PurchaseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8C5AA23315A25008133CE /* PurchaseCell.swift */; };
+		FAB8C5AD23315A25008133CE /* PurchaseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB8C5AB23315A25008133CE /* PurchaseCell.xib */; };
+		FAB8C5B023348EC2008133CE /* PurchaseDetailsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8C5AE23348EC2008133CE /* PurchaseDetailsVC.swift */; };
+		FAB8C5B123348EC2008133CE /* PurchaseDetailsVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB8C5AF23348EC2008133CE /* PurchaseDetailsVC.xib */; };
+		FAB8C5B52335D860008133CE /* Animation.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8C5B42335D860008133CE /* Animation.swift */; };
+		FAB8C5B82335EEC4008133CE /* PurchasedProductCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAB8C5B62335EEC4008133CE /* PurchasedProductCell.swift */; };
+		FAB8C5B92335EEC4008133CE /* PurchasedProductCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FAB8C5B72335EEC4008133CE /* PurchasedProductCell.xib */; };
 		FAC3AB6D22D2F59B0073CC6D /* AddEditCategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3AB6C22D2F59B0073CC6D /* AddEditCategoryVC.swift */; };
 		FAC3AB7022D3DC870073CC6D /* AdminProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3AB6F22D3DC870073CC6D /* AdminProductsVC.swift */; };
 		FAC3AB7222D3DFF60073CC6D /* AddEditProductsVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FAC3AB7122D3DFF60073CC6D /* AddEditProductsVC.swift */; };
@@ -111,6 +121,15 @@
 		FA4EEC08229DFF6500748A19 /* Product.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Product.swift; sourceTree = "<group>"; };
 		FA4EEC0B229E005C00748A19 /* ProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProductCell.swift; sourceTree = "<group>"; };
 		FA4EEC0C229E005C00748A19 /* ProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ProductCell.xib; sourceTree = "<group>"; };
+		FAB8C5A4233065C0008133CE /* Purchase.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Purchase.swift; sourceTree = "<group>"; };
+		FAB8C5A8233159C6008133CE /* PurchasesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasesVC.swift; sourceTree = "<group>"; };
+		FAB8C5AA23315A25008133CE /* PurchaseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseCell.swift; sourceTree = "<group>"; };
+		FAB8C5AB23315A25008133CE /* PurchaseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchaseCell.xib; sourceTree = "<group>"; };
+		FAB8C5AE23348EC2008133CE /* PurchaseDetailsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchaseDetailsVC.swift; sourceTree = "<group>"; };
+		FAB8C5AF23348EC2008133CE /* PurchaseDetailsVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchaseDetailsVC.xib; sourceTree = "<group>"; };
+		FAB8C5B42335D860008133CE /* Animation.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Animation.swift; sourceTree = "<group>"; };
+		FAB8C5B62335EEC4008133CE /* PurchasedProductCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PurchasedProductCell.swift; sourceTree = "<group>"; };
+		FAB8C5B72335EEC4008133CE /* PurchasedProductCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PurchasedProductCell.xib; sourceTree = "<group>"; };
 		FAC3AB6C22D2F59B0073CC6D /* AddEditCategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditCategoryVC.swift; sourceTree = "<group>"; };
 		FAC3AB6F22D3DC870073CC6D /* AdminProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AdminProductsVC.swift; sourceTree = "<group>"; };
 		FAC3AB7122D3DFF60073CC6D /* AddEditProductsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddEditProductsVC.swift; sourceTree = "<group>"; };
@@ -205,6 +224,7 @@
 		FA0AEE81229BAB1B002227C1 /* printbeatAdmin */ = {
 			isa = PBXGroup;
 			children = (
+				FAB8C5A723315999008133CE /* XIBs */,
 				FAC3AB6E22D2F5B90073CC6D /* Controller */,
 				FA0AEE82229BAB1B002227C1 /* AppDelegate.swift */,
 				FA0AEE86229BAB1B002227C1 /* Main.storyboard */,
@@ -265,6 +285,7 @@
 				FA4EEBFA229D205400748A19 /* Category.swift */,
 				FA4EEC08229DFF6500748A19 /* Product.swift */,
 				FAC3AB9122DF47730073CC6D /* User.swift */,
+				FAB8C5A4233065C0008133CE /* Purchase.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -310,6 +331,19 @@
 			path = XIBs;
 			sourceTree = "<group>";
 		};
+		FAB8C5A723315999008133CE /* XIBs */ = {
+			isa = PBXGroup;
+			children = (
+				FAB8C5B72335EEC4008133CE /* PurchasedProductCell.xib */,
+				FAB8C5AB23315A25008133CE /* PurchaseCell.xib */,
+				FAB8C5AF23348EC2008133CE /* PurchaseDetailsVC.xib */,
+				FAB8C5AA23315A25008133CE /* PurchaseCell.swift */,
+				FAB8C5AE23348EC2008133CE /* PurchaseDetailsVC.swift */,
+				FAB8C5B62335EEC4008133CE /* PurchasedProductCell.swift */,
+			);
+			path = XIBs;
+			sourceTree = "<group>";
+		};
 		FAC3AB6E22D2F5B90073CC6D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
@@ -317,6 +351,8 @@
 				FAC3AB6F22D3DC870073CC6D /* AdminProductsVC.swift */,
 				FAC3AB6C22D2F59B0073CC6D /* AddEditCategoryVC.swift */,
 				FAC3AB7122D3DFF60073CC6D /* AddEditProductsVC.swift */,
+				FAB8C5A8233159C6008133CE /* PurchasesVC.swift */,
+				FAB8C5B42335D860008133CE /* Animation.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -439,13 +475,16 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FAB8C5B123348EC2008133CE /* PurchaseDetailsVC.xib in Resources */,
 				FA4EEC02229D218C00748A19 /* CategoryCell.xib in Resources */,
 				FA1EF5A722A4E990000B85A2 /* ProductDetailVC.xib in Resources */,
+				FAB8C5B92335EEC4008133CE /* PurchasedProductCell.xib in Resources */,
 				FA0AEE8D229BAB1B002227C1 /* LaunchScreen.storyboard in Resources */,
 				FA0AEE93229BABBD002227C1 /* Assets.xcassets in Resources */,
 				FA1EF59B22A3B412000B85A2 /* Remachine.ttf in Resources */,
 				FA4EEC10229E005C00748A19 /* ProductCell.xib in Resources */,
 				FA0AEE88229BAB1B002227C1 /* Main.storyboard in Resources */,
+				FAB8C5AD23315A25008133CE /* PurchaseCell.xib in Resources */,
 				FA4EEBE5229BBFD600748A19 /* GoogleService-Info.plist in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -581,6 +620,7 @@
 				FAEDD04F232575DA0037F8C0 /* CartItemCell.swift in Sources */,
 				FA1EF5A422A4E990000B85A2 /* ProductDetailVC.swift in Sources */,
 				FA4EEBF0229C999700748A19 /* Constants.swift in Sources */,
+				FAB8C5A5233065C0008133CE /* Purchase.swift in Sources */,
 				FA4EEC05229DFEE900748A19 /* ProductsVC.swift in Sources */,
 				FAC3AB9222DF47730073CC6D /* User.swift in Sources */,
 				FA0AEE6D229BAB10002227C1 /* HomeVC.swift in Sources */,
@@ -614,13 +654,19 @@
 				FA0986192324151E0089B3EC /* UserService.swift in Sources */,
 				FA1EF5A822A4F9A4000B85A2 /* HomeVC.swift in Sources */,
 				FAEDD059232D6FF00037F8C0 /* StripeCart.swift in Sources */,
+				FAB8C5B023348EC2008133CE /* PurchaseDetailsVC.swift in Sources */,
+				FAB8C5B82335EEC4008133CE /* PurchasedProductCell.swift in Sources */,
+				FAB8C5B52335D860008133CE /* Animation.swift in Sources */,
 				FAC3AB7022D3DC870073CC6D /* AdminProductsVC.swift in Sources */,
 				FA4EEBFC229D205400748A19 /* Category.swift in Sources */,
 				FAC3AB6D22D2F59B0073CC6D /* AddEditCategoryVC.swift in Sources */,
 				FA1EF5AB22A4FB02000B85A2 /* Extensions.swift in Sources */,
 				FA4EEC00229D218C00748A19 /* CategoryCell.swift in Sources */,
 				FA1EF5A522A4E990000B85A2 /* ProductDetailVC.swift in Sources */,
+				FAB8C5A9233159C6008133CE /* PurchasesVC.swift in Sources */,
 				FA09861A232415790089B3EC /* User.swift in Sources */,
+				FAB8C5A6233065C0008133CE /* Purchase.swift in Sources */,
+				FAB8C5AC23315A25008133CE /* PurchaseCell.swift in Sources */,
 				FA4EEC0E229E005C00748A19 /* ProductCell.swift in Sources */,
 				FAC3AB7222D3DFF60073CC6D /* AddEditProductsVC.swift in Sources */,
 				FA4EEC0A229DFF6500748A19 /* Product.swift in Sources */,

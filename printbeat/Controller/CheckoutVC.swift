@@ -9,6 +9,7 @@
 import UIKit
 import Stripe
 import FirebaseFunctions
+import FirebaseFirestore
 
 class CheckoutVC: UIViewController, CartItemDelegate {
 
@@ -107,6 +108,47 @@ class CheckoutVC: UIViewController, CartItemDelegate {
         emptyCartLabelSetup()
     }
     
+    func uploadPurchase() {
+        let docRef = Firestore.firestore().collection("purchases").document()
+        let userName = paymentContext.shippingAddress!.name!
+        let street = paymentContext.shippingAddress!.line1!
+        let apt = paymentContext.shippingAddress!.line2!
+        let zip = paymentContext.shippingAddress!.postalCode!
+        let state = paymentContext.shippingAddress!.state!
+        let city = paymentContext.shippingAddress!.city!
+        let country = paymentContext.shippingAddress!.country!
+        let shippingCost = Double(StripeCart.shippingFees) / 100
+        let shippingCompany = paymentContext.selectedShippingMethod!.label
+        let total = Double(StripeCart.total) / 100
+        let processingFees = Double(StripeCart.processingFees) / 100
+        
+        let purchase = Purchase.init(id: docRef.documentID, timeStamp: Timestamp(), userId: UserService.user.id , userEmail: UserService.user.email, userName: userName, street: street, apt: apt, zip: zip, city: city, state: state, country: country, shippingCost: shippingCost, shippingCompany: shippingCompany, total: total, processingFees: processingFees)
+        
+        let data = Purchase.modelToData(purchase: purchase)
+        
+        docRef.setData(data) { (error) in
+            if let error = error {
+                debugPrint(error.localizedDescription)
+                self.simpleAlert(title: "Error", message: "Purchase was successful, but unable to record a purchase in a database, please contact support")
+                return
+            }
+        }
+        
+        for product in StripeCart.cartItems {
+            let productRef = Firestore.firestore().collection("purchases").document(docRef.documentID).collection("products").document()
+            let data = Product.modelToData(product: product)
+            productRef.setData(data) { (error) in
+                if let error = error {
+                    debugPrint(error.localizedDescription)
+                    self.simpleAlert(title: "Error", message: "Purchase was successful, but unable to record a purchase in a database, please contact support")
+                    return
+                }
+            }
+            
+        }
+        
+    }
+    
 }
 
 extension CheckoutVC: STPPaymentContextDelegate {
@@ -157,11 +199,11 @@ extension CheckoutVC: STPPaymentContextDelegate {
         Functions.functions().httpsCallable("makeCharge").call(data) { (result, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
-                self.simpleAlert(title: "Error", message: "Unable to make charge")
                 completion(error)
                 return
             }
             
+            self.uploadPurchase()
             StripeCart.clearCart()
             self.tableView.reloadData()
             self.setupPaymentInfo()
@@ -174,13 +216,13 @@ extension CheckoutVC: STPPaymentContextDelegate {
         let title: String
         let message: String
         
+        activityIndicator.stopAnimating()
+
         switch status {
         case .error:
-            activityIndicator.stopAnimating()
             title = "Error"
             message = error?.localizedDescription ?? ""
         case .success:
-            activityIndicator.stopAnimating()
             title = "Success"
             message = "Thank you for your purchase"
         case .userCancellation:
@@ -213,6 +255,7 @@ extension CheckoutVC: STPPaymentContextDelegate {
         fedEx.label = "FedEx"
         fedEx.detail = "Arrives tomorrow"
         fedEx.identifier = "fedex"
+        
         
         if address.country == "US" {
             completion(.valid, nil, [upsGround, fedEx], fedEx)

@@ -68,7 +68,6 @@ class ProductsVC: UIViewController, ProductCellDelegate {
     func onDocumentAdded(change: DocumentChange, product: Product) {
         let newIndex = Int(change.newIndex)
         products.insert(product, at: newIndex)
-//        tableView.insertRows(at: [IndexPath(row: newIndex, section: 0)], with: .fade)
     }
     
     func onDocumentModified(change: DocumentChange, product: Product) {
@@ -150,6 +149,8 @@ extension ProductsVC: UITableViewDelegate, UITableViewDataSource {
         let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .medium)
         impactFeedbackgenerator.prepare()
         impactFeedbackgenerator.impactOccurred()
-        present(vc, animated: true, completion: nil)
+        DispatchQueue.main.async {
+            self.present(vc, animated: true, completion: nil)
+        }
     }
 }

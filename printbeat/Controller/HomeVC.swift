@@ -153,6 +153,7 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
     
     func onDocumentAdded(change: DocumentChange, category: Category) {
         let newIndex = Int(change.newIndex)
+        collectionView.numberOfItems(inSection: 0)
         categories.insert(category, at: newIndex)
         collectionView.insertItems(at: [IndexPath(item: newIndex, section: 0)])
     }
