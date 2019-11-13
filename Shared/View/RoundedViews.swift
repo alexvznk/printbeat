@@ -23,7 +23,7 @@ class RoundedButton10: UIButton {
     }
 }
 
-class RoundedButton50: UIButton {
+class RoundedButton25: UIButton {
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.cornerRadius = 25
@@ -53,12 +53,36 @@ class RoundedImageView: UIImageView {
     }
 }
 
+class RoundedImageView15: UIImageView {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.cornerRadius = 15
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOffset = CGSize(width: 0, height: 2.0)
+        layer.shadowOffset = CGSize.zero
+        layer.shadowOpacity = 0.2
+        layer.shadowRadius = 4
+    }
+}
+
 class RoundedView: UIView {
     override func awakeFromNib() {
         super.awakeFromNib()
         layer.cornerRadius = 10
         layer.shadowColor = UIColor.black.cgColor
-        layer.shadowOffset = CGSize(width: 0, height: 2.0)
+//        layer.shadowOffset = CGSize(width: 0, height: 3.0)
+        layer.shadowOffset = CGSize.zero
+        layer.shadowOpacity = 0.2
+        layer.shadowRadius = 4
+    }
+}
+
+class RoundedView15: UIView {
+    override func awakeFromNib() {
+        super.awakeFromNib()
+        layer.cornerRadius = 15
+        layer.shadowColor = UIColor.black.cgColor
+//        layer.shadowOffset = CGSize(width: 0.0, height: 3.0)
         layer.shadowOffset = CGSize.zero
         layer.shadowOpacity = 0.2
         layer.shadowRadius = 4

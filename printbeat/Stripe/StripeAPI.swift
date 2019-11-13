@@ -12,7 +12,7 @@ import FirebaseFunctions
 
 let StripeAPI = _StripeAPI()
 
-class _StripeAPI: NSObject, STPEphemeralKeyProvider {
+class _StripeAPI: NSObject, STPCustomerEphemeralKeyProvider {
     
     func createCustomerKey(withAPIVersion apiVersion: String, completion: @escaping STPJSONResponseCompletionBlock) {
         

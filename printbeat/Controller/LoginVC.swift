@@ -15,6 +15,9 @@ class LoginVC: UIViewController {
     @IBOutlet weak var passwordTxt: UITextField!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
+    var homeView: HomeVC?
+    var profileView: ProfileVC?
+    
     @IBAction func forgotPassClicked(_ sender: Any) {
         let forgotPasswordVC = ForgotPasswordVC(nibName: "ForgotPasswordVC", bundle: nil)
         forgotPasswordVC.modalPresentationStyle = .overCurrentContext
@@ -41,6 +44,8 @@ class LoginVC: UIViewController {
             self.activityIndicator.stopAnimating()
             print("Login Successful")
             self.view.endEditing(true)
+            self.homeView?.loginOutBtn.title = "Logout"
+            self.profileView?.profileSetup()
             self.dismiss(animated: true, completion: nil)
             
         }

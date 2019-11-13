@@ -71,7 +71,6 @@ class CheckoutVC: UIViewController, CartItemDelegate {
     
     func setupStripeConfig() {
         let config = STPPaymentConfiguration.shared()
-        config.createCardSources = true
         config.requiredBillingAddressFields = .none
         config.requiredShippingAddressFields = [.postalAddress]
         
@@ -92,7 +91,7 @@ class CheckoutVC: UIViewController, CartItemDelegate {
     }
     
     @IBAction func paymentMethodClicked(_ sender: Any) {
-        paymentContext.pushPaymentMethodsViewController()
+        paymentContext.pushPaymentOptionsViewController()
     }
     
     @IBAction func shippingMethodClicked(_ sender: Any) {
@@ -154,8 +153,7 @@ class CheckoutVC: UIViewController, CartItemDelegate {
 extension CheckoutVC: STPPaymentContextDelegate {
     
     func paymentContextDidChange(_ paymentContext: STPPaymentContext) {
-        
-        if let paymentMethod = paymentContext.selectedPaymentMethod {
+        if let paymentMethod = paymentContext.selectedPaymentOption {
             paymentMethodBtn.setTitle(paymentMethod.label, for: .normal)
             creditCardImg.image = paymentMethod.image
         } else {
@@ -186,28 +184,28 @@ extension CheckoutVC: STPPaymentContextDelegate {
         present(alertController, animated: true)
     }
     
-    func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPErrorBlock) {
-        
+    func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPPaymentStatusBlock) {
+
         let idempotency = UUID().uuidString.replacingOccurrences(of: "-", with: "")
-        
+
         let data: [String: Any] = [
             "total": StripeCart.total,
             "customerId": UserService.user.stripeId,
             "idempotency": idempotency
         ]
-        
+
         Functions.functions().httpsCallable("makeCharge").call(data) { (result, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
-                completion(error)
+                completion(.error, error)
                 return
             }
-            
+
             self.uploadPurchase()
             StripeCart.clearCart()
             self.tableView.reloadData()
             self.setupPaymentInfo()
-            completion(nil)
+            completion(.success, nil)
         }
     }
     

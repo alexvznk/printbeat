@@ -17,6 +17,8 @@ final class _UserService {
     let auth = Auth.auth()
     let db = Firestore.firestore()
     var userListener: ListenerRegistration? = nil
+    var purchaseListener: ListenerRegistration? = nil
+    var profileVC: ProfileVC? = nil
     var isGuest: Bool {
         guard let authUser = auth.currentUser else {
             return true
@@ -28,7 +30,7 @@ final class _UserService {
         }
     }
     
-    func getCurrentUser() {
+    func getCurrentUser(updateUI: (()->())? = nil) {
         guard let authUser = auth.currentUser else { return }
         
         let userRef = db.collection("users").document(authUser.uid)
@@ -37,12 +39,13 @@ final class _UserService {
                 debugPrint(error.localizedDescription)
                 return
             }
+            
             guard let data = snap?.data() else { return }
             self.user = User.init(data: data)
+            updateUI?()
         })
         
         let favsRef = userRef.collection("favorites")
-        
         favsRef.getDocuments { (snap, error) in
             if let error = error {
                 debugPrint(error.localizedDescription)
@@ -70,8 +73,11 @@ final class _UserService {
     
     func logoutUser() {
         userListener?.remove()
+        profileVC?.purchaseListener?.remove()
+        profileVC?.purchaseListener = nil
         userListener = nil
         user = User()
         favorites.removeAll()
+        profileVC?.purchases.removeAll()
     }    
 }

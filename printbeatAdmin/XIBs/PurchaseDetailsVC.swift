@@ -44,8 +44,14 @@ class PurchaseDetailsVC: UIViewController {
         currencyFormatter.numberStyle = .currency
         if let shippingCost = currencyFormatter.string(from: purchase.shippingCost as NSNumber),
             let processingFees = currencyFormatter.string(from: purchase.processingFees as NSNumber) {
-            shippingCostLbl.text = shippingCost
-            processingFeesLbl.text = processingFees
+            if (purchase.shippingCost == 0) {
+                shippingCostLbl.text = "Free"
+                processingFeesLbl.text = processingFees
+            } else {
+                shippingCostLbl.text = shippingCost
+                processingFeesLbl.text = processingFees
+            }
+
         } else {
             shippingCostLbl.text = ""
             processingFeesLbl.text = ""
@@ -89,6 +95,21 @@ extension PurchaseDetailsVC: UITableViewDelegate, UITableViewDataSource {
             return cell
         }
         return UITableViewCell()
+    }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        let vc = ProductDetailVC()
+        let selectedProduct = products[indexPath.row]
+        vc.product = selectedProduct
+        vc.isPurchased = true
+        vc.modalTransitionStyle = .coverVertical
+        vc.modalPresentationStyle = .overCurrentContext
+        let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .medium)
+        impactFeedbackgenerator.prepare()
+        impactFeedbackgenerator.impactOccurred()
+        DispatchQueue.main.async {
+            self.present(vc, animated: true, completion: nil)
+        }
     }
     
     func tableView(_ tableView: UITableView, estimatedHeightForRowAt indexPath: IndexPath) -> CGFloat {

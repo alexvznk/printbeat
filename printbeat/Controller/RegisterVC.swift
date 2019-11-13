@@ -73,17 +73,6 @@ class RegisterVC: UIViewController {
         
         activityIndicator.startAnimating()
         
-//        Auth.auth().createUser(withEmail: email, password: password) { (result, error) in
-//             if let error = error {
-//                 debugPrint(error)
-//                 self.handleFireAuthError(error: error)
-//                 return
-//             }
-//            guard let fireUser = result?.user else { return }
-//            let user = User.init(id: fireUser.uid, email: email, username: username, stripeId: "")
-//            self.createFirestoreUser(user: user)
-//        }
-        
         guard let authUser = Auth.auth().currentUser else { return }
         let credential = EmailAuthProvider.credential(withEmail: email, password: password)
 
@@ -101,7 +90,7 @@ class RegisterVC: UIViewController {
     }
     
     func createFirestoreUser(user: User) {
-        
+        print("CREATING FIRESTORE USER")
         let newUserRef = Firestore.firestore().collection("users").document(user.id)
         let data = User.modelToData(user: user)
         newUserRef.setData(data) { (error) in
@@ -111,6 +100,10 @@ class RegisterVC: UIViewController {
                 
             } else {
                 self.view.endEditing(true)
+                if let loginVC = self.presentingViewController as? LoginVC {
+                    loginVC.homeView?.loginOutBtn.title = "Logout"
+                    loginVC.profileView?.profileSetup()
+                }
                 self.presentingViewController?.presentingViewController?.dismiss(animated: true, completion: nil)
             }
             self.activityIndicator.stopAnimating()

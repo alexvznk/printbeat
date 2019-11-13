@@ -15,7 +15,6 @@ class HomeVC: UIViewController {
     @IBOutlet weak var loginOutBtn: UIBarButtonItem!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
-    @IBOutlet weak var loginOutButton: UIBarButtonItem!
     
     var categories = [Category]()
     var selectedCategory: Category!
@@ -131,6 +130,7 @@ class HomeVC: UIViewController {
                         self.handleFireAuthError(error: error)
                     }
                     self.activityIndicator.stopAnimating()
+                    StripeCart.clearCart()
                     self.presentLoginVC()
                 }
             } catch {
@@ -142,8 +142,11 @@ class HomeVC: UIViewController {
     
     func presentLoginVC() {
         let storyboard = UIStoryboard(name: Storyboard.LoginStoryboard, bundle: nil)
-        let loginVC = storyboard.instantiateViewController(withIdentifier: StoryboardId.LoginVC)
-        present(loginVC, animated: true, completion: nil)
+        let loginVC = storyboard.instantiateViewController(withIdentifier: StoryboardId.LoginVC) as! LoginVC
+        loginVC.homeView = self
+        present(loginVC, animated: true) {
+            self.loginOutBtn.title = "Login"
+        }
     }
 
 
@@ -208,6 +211,12 @@ extension HomeVC: UICollectionViewDelegate, UICollectionViewDataSource, UICollec
         if segue.identifier == Segues.ToProducts {
             if let destination = segue.destination as? ProductsVC {
                 destination.category = selectedCategory
+            }
+        }
+        
+        if segue.identifier == Segues.ToShoppingCart {
+            if let destination = segue.destination as? CheckoutVC {
+                destination.hidesBottomBarWhenPushed = true
             }
         }
     }

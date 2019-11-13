@@ -15,11 +15,18 @@ class ProductDetailVC: UIViewController {
     @IBOutlet weak var productPrice: UILabel!
     @IBOutlet weak var productDescription: UILabel!
     @IBOutlet weak var bgView: UIVisualEffectView!
+    @IBOutlet weak var blankDismissView: UIView!
+    @IBOutlet weak var backBtn: UIButton!
     
     var product: Product!
+    var isPurchased = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        if (isPurchased) {
+            bgView.isHidden = true
+            backBtn.setTitle("Back", for: .normal)
+        }
         productTitle.text = product.name
         productDescription.text = product.productDescription
         if let url = URL(string: product.imgUrl) {
@@ -33,7 +40,7 @@ class ProductDetailVC: UIViewController {
         
         let tap = UITapGestureRecognizer(target: self, action: #selector(dismissProduct))
         tap.numberOfTapsRequired = 1
-        bgView.addGestureRecognizer(tap)
+        blankDismissView.addGestureRecognizer(tap)
     }
     
     @objc func dismissProduct() {

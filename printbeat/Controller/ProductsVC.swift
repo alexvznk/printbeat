@@ -119,6 +119,14 @@ class ProductsVC: UIViewController, ProductCellDelegate {
             performSegue(withIdentifier: Segues.ToFavorites, sender: self)
         }
     }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == Segues.ToShoppingCart {
+            if let destination = segue.destination as? CheckoutVC {
+                destination.hidesBottomBarWhenPushed = true
+            }
+        }
+    }
 }
 
 
@@ -145,7 +153,7 @@ extension ProductsVC: UITableViewDelegate, UITableViewDataSource {
         let selectedProduct = products[indexPath.row]
         vc.product = selectedProduct
         vc.modalTransitionStyle = .coverVertical
-        vc.modalPresentationStyle = .overCurrentContext
+        vc.modalPresentationStyle = .overFullScreen
         let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .medium)
         impactFeedbackgenerator.prepare()
         impactFeedbackgenerator.impactOccurred()
