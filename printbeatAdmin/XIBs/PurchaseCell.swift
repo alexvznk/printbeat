@@ -27,7 +27,7 @@ class PurchaseCell: UITableViewCell {
         let time = timeFormatter.string(from: purchase.timeStamp.dateValue())
         
         dateLbl.text = "\(date), \(time)"
-        userEmailLbl.text = purchase.userEmail
+        userEmailLbl.text = purchase.customerEmail
         userLocationLbl.text = "\(purchase.city), \(purchase.state)"
         let currencyFormatter = NumberFormatter()
         currencyFormatter.numberStyle = .currency

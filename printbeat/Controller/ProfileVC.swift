@@ -76,7 +76,7 @@ class ProfileVC: UIViewController {
         emailLbl.text = UserService.user.email
         loginOutBtn.setTitle("Logout", for: .normal)
         
-        purchaseListener =  Firestore.firestore().collection("purchases").whereField("userId", isEqualTo: UserService.user.id).order(by: "timeStamp").addSnapshotListener({ (snap, error) in
+        purchaseListener =  Firestore.firestore().collection("purchases").whereField("customerId", isEqualTo: UserService.user.stripeId).order(by: "timeStamp").addSnapshotListener({ (snap, error) in
             if let error = error {
                 debugPrint(error)
                 return
@@ -189,6 +189,7 @@ class ProfileVC: UIViewController {
     }
     
     @IBAction func faqBtnClicked(_ sender: Any) {
+        
     }
     
     @IBAction func aboutBtnClicked(_ sender: Any) {

@@ -12,49 +12,49 @@ import FirebaseFirestore
 struct Purchase {
     var id: String
     var timeStamp: Timestamp
-    var userId: String
-    var userEmail: String
-    var userName: String
-    var street: String
-    var apt: String
-    var zip: String
+    var customerId: String
+    var customerEmail: String
+    var customerName: String
+    var addrLine1: String
+    var addrLine2: String
+    var postalCode: String
     var city: String
     var state: String
     var country: String
     var shippingCost: Double
-    var shippingCompany: String
+    var shippingMethod: String
     var total: Double
     var processingFees: Double
 
 
     init(id: String,
          timeStamp: Timestamp,
-         userId: String,
-         userEmail: String,
-         userName: String,
-         street: String,
-         apt: String,
-         zip: String,
+         customerId: String,
+         customerEmail: String,
+         customerName: String,
+         addrLine1: String,
+         addrLine2: String,
+         postalCode: String,
          city: String,
          state: String,
          country: String,
          shippingCost: Double,
-         shippingCompany: String,
+         shippingMethod: String,
          total: Double,
          processingFees: Double) {
         self.id = id
         self.timeStamp = timeStamp
-        self.userId = userId
-        self.userEmail = userEmail
-        self.userName = userName
-        self.street = street
-        self.apt = apt
-        self.zip = zip
+        self.customerId = customerId
+        self.customerEmail = customerEmail
+        self.customerName = customerName
+        self.addrLine1 = addrLine1
+        self.addrLine2 = addrLine2
+        self.postalCode = postalCode
         self.city = city
         self.state = state
         self.country = country
         self.shippingCost = shippingCost
-        self.shippingCompany = shippingCompany
+        self.shippingMethod = shippingMethod
         self.total = total
         self.processingFees = processingFees
     }
@@ -62,17 +62,17 @@ struct Purchase {
     init(data: [String: Any]) {
         self.id = data["id"] as? String ?? ""
         self.timeStamp = data["timeStamp"] as? Timestamp ?? Timestamp()
-        self.userId = data["userId"] as? String ?? ""
-        self.userEmail = data["userEmail"] as? String ?? ""
-        self.userName = data["userName"] as? String ?? ""
-        self.street = data["street"] as? String ?? ""
-        self.apt = data["apt"] as? String ?? ""
-        self.zip = data["zip"] as? String ?? ""
+        self.customerId = data["customerId"] as? String ?? ""
+        self.customerEmail = data["customerEmail"] as? String ?? ""
+        self.customerName = data["customerName"] as? String ?? ""
+        self.addrLine1 = data["addrLine1"] as? String ?? ""
+        self.addrLine2 = data["addrLine2"] as? String ?? ""
+        self.postalCode = data["postalCode"] as? String ?? ""
         self.city = data["city"] as? String ?? ""
         self.state = data["state"] as? String ?? ""
         self.country = data["country"] as? String ?? ""
         self.shippingCost = data["shippingCost"] as? Double ?? 0.0
-        self.shippingCompany = data["shippingCompany"] as? String ?? ""
+        self.shippingMethod = data["shippingMethod"] as? String ?? ""
         self.total = data["total"] as? Double ?? 0.0
         self.processingFees = data["processingFees"] as? Double ?? 0.0
         
@@ -83,17 +83,17 @@ struct Purchase {
         let data : [String: Any] = [
             "id" : purchase.id,
             "timeStamp" : purchase.timeStamp,
-            "userId" : purchase.userId,
-            "userEmail" : purchase.userEmail,
-            "userName" : purchase.userName,
-            "street" : purchase.street,
-            "apt" : purchase.apt,
-            "zip" : purchase.zip,
+            "customerId" : purchase.customerId,
+            "customerEmail" : purchase.customerEmail,
+            "customerName" : purchase.customerName,
+            "addrLine1" : purchase.addrLine1,
+            "addrLine2" : purchase.addrLine2,
+            "postalCode" : purchase.postalCode,
             "city" : purchase.city,
             "state" : purchase.state,
             "country" : purchase.country,
             "shippingCost" : purchase.shippingCost,
-            "shippingCompany" : purchase.shippingCompany,
+            "shippingMethod" : purchase.shippingMethod,
             "total" : purchase.total,
             "processingFees" : purchase.processingFees
         ]

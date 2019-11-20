@@ -29,13 +29,21 @@ final class _StripeCart {
         if subtotal == 0 {
             return 0
         }
-        let sub = Double(subtotal)
-        let feesAndSub = Int(sub * stripeCreditCardCut) + flatFeeCents
-        return feesAndSub
+        let total =  Double(subtotal + shippingFees + flatFeeCents) / (1 - stripeCreditCardCut)
+        let fees = Int(total) - subtotal - shippingFees
+        return fees
     }
     
     var total: Int {
         return subtotal + processingFees + shippingFees
+    }
+    
+    var cartItemIds: [String] {
+        var cartItemIds = [String]()
+        for item in cartItems {
+            cartItemIds.append(item.id)
+        }
+        return cartItemIds
     }
     
     func addItemToCart(item: Product) {

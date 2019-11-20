@@ -106,48 +106,6 @@ class CheckoutVC: UIViewController, CartItemDelegate {
         paymentContext.paymentAmount = StripeCart.total
         emptyCartLabelSetup()
     }
-    
-    func uploadPurchase() {
-        let docRef = Firestore.firestore().collection("purchases").document()
-        let userName = paymentContext.shippingAddress!.name!
-        let street = paymentContext.shippingAddress!.line1!
-        let apt = paymentContext.shippingAddress!.line2!
-        let zip = paymentContext.shippingAddress!.postalCode!
-        let state = paymentContext.shippingAddress!.state!
-        let city = paymentContext.shippingAddress!.city!
-        let country = paymentContext.shippingAddress!.country!
-        let shippingCost = Double(StripeCart.shippingFees) / 100
-        let shippingCompany = paymentContext.selectedShippingMethod!.label
-        let total = Double(StripeCart.total) / 100
-        let processingFees = Double(StripeCart.processingFees) / 100
-        
-        let purchase = Purchase.init(id: docRef.documentID, timeStamp: Timestamp(), userId: UserService.user.id , userEmail: UserService.user.email, userName: userName, street: street, apt: apt, zip: zip, city: city, state: state, country: country, shippingCost: shippingCost, shippingCompany: shippingCompany, total: total, processingFees: processingFees)
-        
-        let data = Purchase.modelToData(purchase: purchase)
-        
-        docRef.setData(data) { (error) in
-            if let error = error {
-                debugPrint(error.localizedDescription)
-                self.simpleAlert(title: "Error", message: "Purchase was successful, but unable to record a purchase in a database, please contact support")
-                return
-            }
-        }
-        
-        for product in StripeCart.cartItems {
-            let productRef = Firestore.firestore().collection("purchases").document(docRef.documentID).collection("products").document()
-            let data = Product.modelToData(product: product)
-            productRef.setData(data) { (error) in
-                if let error = error {
-                    debugPrint(error.localizedDescription)
-                    self.simpleAlert(title: "Error", message: "Purchase was successful, but unable to record a purchase in a database, please contact support")
-                    return
-                }
-            }
-            
-        }
-        
-    }
-    
 }
 
 extension CheckoutVC: STPPaymentContextDelegate {
@@ -185,28 +143,47 @@ extension CheckoutVC: STPPaymentContextDelegate {
     }
     
     func paymentContext(_ paymentContext: STPPaymentContext, didCreatePaymentResult paymentResult: STPPaymentResult, completion: @escaping STPPaymentStatusBlock) {
-
-        let idempotency = UUID().uuidString.replacingOccurrences(of: "-", with: "")
-
+        
         let data: [String: Any] = [
-            "total": StripeCart.total,
-            "customerId": UserService.user.stripeId,
-            "idempotency": idempotency
+            "purchases": StripeCart.cartItemIds,
+            "shippingMethod": paymentContext.selectedShippingMethod!.label,
+            "customerId": UserService.user.stripeId
         ]
-
-        Functions.functions().httpsCallable("makeCharge").call(data) { (result, error) in
+        
+        Functions.functions().httpsCallable("createPaymentIntent").call(data) { (result, error) in
+            
             if let error = error {
-                debugPrint(error.localizedDescription)
                 completion(.error, error)
                 return
             }
-
-            self.uploadPurchase()
-            StripeCart.clearCart()
-            self.tableView.reloadData()
-            self.setupPaymentInfo()
-            completion(.success, nil)
+            
+            if let clientSecret = (result?.data as? [String: Any])?["clientSecret"] as? String {
+                
+                let paymentIntentParams = STPPaymentIntentParams(clientSecret: clientSecret)
+                paymentIntentParams.paymentMethodId = paymentResult.paymentMethod?.stripeId
+                
+                STPPaymentHandler.shared().confirmPayment(withParams: paymentIntentParams, authenticationContext: paymentContext) { status, paymentIntent, error in
+                    switch status {
+                    case .succeeded:
+                        StripeCart.clearCart()
+                        self.tableView.reloadData()
+                        self.setupPaymentInfo()
+                        completion(.success, nil)
+                    case .failed:
+                        completion(.error, error) // Report error
+                    case .canceled:
+                        completion(.userCancellation, nil) // Customer cancelled
+                    @unknown default:
+                        completion(.error, nil)
+                    }
+                }
+                
+            } else {
+                completion(.error, nil)
+            }
+            
         }
+        
     }
     
     func paymentContext(_ paymentContext: STPPaymentContext, didFinishWith status: STPPaymentStatus, error: Error?) {
@@ -219,7 +196,7 @@ extension CheckoutVC: STPPaymentContextDelegate {
         switch status {
         case .error:
             title = "Error"
-            message = error?.localizedDescription ?? ""
+            message = error?.localizedDescription ?? "Internal error"
         case .success:
             title = "Success"
             message = "Thank you for your purchase"
