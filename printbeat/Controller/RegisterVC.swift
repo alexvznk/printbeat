@@ -80,6 +80,7 @@ class RegisterVC: UIViewController {
             if let error = error {
                 debugPrint(error)
                 self.handleFireAuthError(error: error)
+                self.activityIndicator.stopAnimating()
                 return
             }
             guard let fireUser = result?.user else { return }
@@ -90,7 +91,7 @@ class RegisterVC: UIViewController {
     }
     
     func createFirestoreUser(user: User) {
-        print("CREATING FIRESTORE USER")
+        
         let newUserRef = Firestore.firestore().collection("users").document(user.id)
         let data = User.modelToData(user: user)
         newUserRef.setData(data) { (error) in

@@ -56,7 +56,6 @@ class ProfileVC: UIViewController {
             
         } else {
             if UserService.userListener == nil {
-                print("getting current user")
                 UserService.getCurrentUser {
                     if self.purchaseListener == nil {
                         self.setPurchasesListener()
@@ -122,8 +121,15 @@ class ProfileVC: UIViewController {
         } else {
             purchaseView.isHidden = true
             openAllPurchasesBtn.isHidden = true
+            noPurchasesLbl.center.x -= 300
+            emptyBoxImg.center.x -= 300
             noPurchasesLbl.isHidden = false
             emptyBoxImg.isHidden = false
+            
+            UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.0, options: [] , animations: {
+                self.noPurchasesLbl.center.x += 300
+                self.emptyBoxImg.center.x += 300
+            }, completion: nil)
         }
     }
     

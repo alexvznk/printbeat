@@ -16,6 +16,7 @@ class AddEditProductsVC: UIViewController {
     @IBOutlet weak var productDescTxt: UITextView!
     @IBOutlet weak var productImg: RoundedImageView!
     @IBOutlet weak var addBtn: RoundedButton!
+    @IBOutlet weak var RemoveCancelBtn: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     
     var selectedCategory: Category!
@@ -26,7 +27,9 @@ class AddEditProductsVC: UIViewController {
         let tap = UITapGestureRecognizer(target: self, action: #selector(imageTapped))
         productImg.isUserInteractionEnabled = true
         productImg.addGestureRecognizer(tap)
-        
+        setNavTitleAndButtons()
+        productDescTxt.layer.cornerRadius = 15
+        productDescTxt.textContainerInset = UIEdgeInsets(top: 8,left: 8, bottom: 8,right: 8)
         if let product = productToEdit {
             productNameTxt.text = product.name
             productPriceTxt.text = String(product.price)
@@ -39,20 +42,70 @@ class AddEditProductsVC: UIViewController {
         }
     }
     
+    
+    func setNavTitleAndButtons() {
+        if productToEdit != nil {
+            navigationItem.title = "Edit product"
+            RemoveCancelBtn.setTitle("Remove Product", for: .normal)
+        } else {
+            navigationItem.title = "Add product"
+            RemoveCancelBtn.setTitle("Cancel", for: .normal)
+        }
+    }
+    
     @objc func imageTapped() {
         launchImgPicker()
     }
     
+    @IBAction func removeCancelBtnClicked(_ sender: Any) {
+        if productToEdit != nil {
+            let refreshAlert = UIAlertController(title: "Removing Product", message: "Are you sure you want to remove the product?", preferredStyle: .alert)
+
+            refreshAlert.addAction(UIAlertAction(title: "Remove", style: .default, handler: { (action: UIAlertAction!) in
+                self.activityIndicator.startAnimating()
+                self.removeDocument()
+            }))
+
+            refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                self.dismiss(animated: true, completion: nil)
+            }))
+
+            present(refreshAlert, animated: true, completion: nil)
+
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
+            
+    }
+    
+    
     @IBAction func addBtnClicked(_ sender: Any) {
         activityIndicator.startAnimating()
         uploadImageThenDocument()
+        addBtn.isEnabled = false
+    }
+    
+    func removeDocument() {
+        Firestore.firestore().collection("products").document(productToEdit!.id).delete { (err) in
+            if let err = err {
+                self.simpleAlert(title: "Error", message: err.localizedDescription)
+                self.activityIndicator.stopAnimating()
+            } else {
+                self.activityIndicator.stopAnimating()
+                let i = self.navigationController?.viewControllers.firstIndex(of: self)
+                let previousViewController = self.navigationController?.viewControllers[i!-1]
+                if let previous = previousViewController as? AdminProductsVC {
+                    previous.tableView.reloadData()
+                }
+                self.navigationController?.popViewController(animated: true)
+            }
+        }
     }
     
     func uploadImageThenDocument() {
         guard let image = productImg.image,
         let name = productNameTxt.text, !name.isEmpty,
         let price = productPriceTxt.text, !price.isEmpty,
-        let priceDouble = Double(price),
         let desc = productDescTxt.text, !desc.isEmpty else {
                 simpleAlert(title: "Error", message: "You must fill all fields correctly")
                 activityIndicator.stopAnimating()
@@ -107,6 +160,7 @@ class AddEditProductsVC: UIViewController {
             }
             self.activityIndicator.stopAnimating()
             self.navigationController?.popViewController(animated: true)
+            self.addBtn.isEnabled = true
         }
         
     }
@@ -119,6 +173,7 @@ extension AddEditProductsVC: UIImagePickerControllerDelegate, UINavigationContro
         let imagePicker = UIImagePickerController()
         imagePicker.delegate = self
         present(imagePicker, animated: true, completion: nil)
+        view.endEditing(true)
     }
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {

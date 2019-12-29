@@ -18,8 +18,6 @@ class AdminProductsVC: ProductsVC {
         let editCategoryBtn = UIBarButtonItem(title: "Edit Category", style: .plain, target: self, action: #selector(editCategory))
         let newProductBtn = UIBarButtonItem(title: "+ Product", style: .plain, target: self, action: #selector(newProduct))
         navigationItem.setRightBarButtonItems([editCategoryBtn, newProductBtn], animated: false)
-        
-
     }
     
     @objc func editCategory() {
@@ -55,6 +53,7 @@ class AdminProductsVC: ProductsVC {
         } else if segue.identifier == Segues.ToEditCategory {
                 if let destination = segue.destination as? AddEditCategoryVC {
                     destination.categoryToEdit = category
+                    destination.products = products
                 }
             }
         }

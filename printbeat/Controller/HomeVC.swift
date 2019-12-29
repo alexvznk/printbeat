@@ -20,14 +20,17 @@ class HomeVC: UIViewController {
     var selectedCategory: Category!
     var db: Firestore!
     var listener: ListenerRegistration!
+    var isAdminVC = false
     
 
     override func viewDidLoad() {
         super.viewDidLoad()
         db = Firestore.firestore()
         setupCollectionView()
-        setupInitialAnonymousUser()
         setupNavigationBar()
+        if !isAdminVC {
+            setupInitialAnonymousUser()
+        }
     }
     
     func setupNavigationBar() {
@@ -61,10 +64,12 @@ class HomeVC: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        setCategoriesListener()
+        if Auth.auth().currentUser != nil {
+            setCategoriesListener()
+        }
         if let user = Auth.auth().currentUser, !user.isAnonymous {
             loginOutBtn.title = "Logout"
-            if UserService.userListener == nil {
+            if UserService.userListener == nil, !isAdminVC {
                 UserService.getCurrentUser()
             }
         } else {

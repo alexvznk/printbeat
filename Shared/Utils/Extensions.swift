@@ -59,3 +59,19 @@ extension Int {
         return "$0.00"
     }
 }
+
+extension UITextField {
+    func setPadding() {
+        
+    }
+    open override func awakeFromNib() {
+        layer.borderWidth = 0
+        layer.cornerRadius = 10
+        layer.backgroundColor = #colorLiteral(red: 1.0, green: 1.0, blue: 1.0, alpha: 1.0)
+        let paddingView = UIView(frame: CGRect(x: 0.0, y: 0.0, width: 10, height: self.frame.height))
+        leftView = paddingView
+        leftViewMode = .always
+        
+    }
+    
+}

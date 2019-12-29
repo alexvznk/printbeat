@@ -199,7 +199,7 @@ extension CheckoutVC: STPPaymentContextDelegate {
             message = error?.localizedDescription ?? "Internal error"
         case .success:
             title = "Success"
-            message = "Thank you for your purchase"
+            message = "Thank you for your purchase. Check your email for order confirmation."
         case .userCancellation:
             return
         }

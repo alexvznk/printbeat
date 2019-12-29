@@ -12,11 +12,13 @@ import Firebase
 class AddEditCategoryVC: UIViewController {
     
     var categoryToEdit: Category?
+    var products: [Product]?
 
     @IBOutlet weak var nameTxt: UITextField!
     @IBOutlet weak var categoryImg: RoundedImageView!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var addBtn: UIButton!
+    @IBOutlet weak var removeCancelBtn: UIButton!
     
     
     override func viewDidLoad() {
@@ -27,12 +29,18 @@ class AddEditCategoryVC: UIViewController {
         categoryImg.addGestureRecognizer(tap)
         
         if let category = categoryToEdit {
+            navigationItem.title = "Edit category"
             nameTxt.text = category.name
             addBtn.setTitle("Save Changes", for: .normal)
+            removeCancelBtn.setTitle("Remove Category", for: .normal)
             if let url = URL(string: category.imgUrl) {
                 categoryImg.contentMode = .scaleAspectFill
                 categoryImg.kf.setImage(with: url)
             }
+        } else {
+            navigationItem.title = "Add category"
+            addBtn.setTitle("Create Category", for: .normal)
+            removeCancelBtn.setTitle("Cancel", for: .normal)
         }
     }
     
@@ -40,10 +48,49 @@ class AddEditCategoryVC: UIViewController {
         launchImgPicker()    
     }
     
-
-    @IBAction func categoryClicked(_ sender: Any) {
+    @IBAction func removeCancelBtnClicked(_ sender: Any) {
+        if categoryToEdit != nil {
+        
+            if products!.isEmpty {
+                
+                let refreshAlert = UIAlertController(title: "Removing Category", message: "Are you sure you want to remove the category?", preferredStyle: .alert)
+                
+                refreshAlert.addAction(UIAlertAction(title: "Remove", style: .default, handler: { (action: UIAlertAction!) in
+                    self.activityIndicator.startAnimating()
+                    self.removeCategory()
+                }))
+                
+                refreshAlert.addAction(UIAlertAction(title: "Cancel", style: .cancel, handler: { (action: UIAlertAction!) in
+                    self.dismiss(animated: true, completion: nil)
+                }))
+                
+                present(refreshAlert, animated: true, completion: nil)
+                
+            } else {
+                simpleAlert(title: "Error. Category is not empty", message: "You must remove all the products before removing a category. If you want to delete everything in once, use the Firebase Console.")
+            }
+            
+        } else {
+            navigationController?.popViewController(animated: true)
+        }
+    }
+    
+    @IBAction func addSaveBtnClicked(_ sender: Any) {
         activityIndicator.startAnimating()
+        addBtn.isEnabled = false
         uploadImageThenDocument()
+    }
+    
+    func removeCategory() {
+        Firestore.firestore().collection("categories").document(categoryToEdit!.id).delete { (err) in
+            if let err = err {
+                self.activityIndicator.stopAnimating()
+                self.simpleAlert(title: "Error", message: err.localizedDescription)
+            } else {
+                self.activityIndicator.stopAnimating()
+                self.navigationController?.popToRootViewController(animated: true)
+            }
+        }
     }
     
     func uploadImageThenDocument() {
@@ -64,6 +111,7 @@ class AddEditCategoryVC: UIViewController {
                 debugPrint(error.localizedDescription)
                 self.simpleAlert(title: "Error", message: "Unable to upload the image")
                 self.activityIndicator.stopAnimating()
+                self.addBtn.isEnabled = true
                 return
             }
             imageRef.downloadURL(completion: { (url, error) in
@@ -71,6 +119,7 @@ class AddEditCategoryVC: UIViewController {
                     debugPrint(error.localizedDescription)
                     self.simpleAlert(title: "Error", message: "Unable to upload the image")
                     self.activityIndicator.stopAnimating()
+                    self.addBtn.isEnabled = true
                     return
                 }
                 
@@ -100,9 +149,11 @@ class AddEditCategoryVC: UIViewController {
                 debugPrint(error.localizedDescription)
                 self.simpleAlert(title: "Error", message: "Unable to create a category")
                 self.activityIndicator.stopAnimating()
+                self.addBtn.isEnabled = true
                 return
             }
             self.activityIndicator.stopAnimating()
+            self.addBtn.isEnabled = true
             self.navigationController?.popViewController(animated: true)
             
         }

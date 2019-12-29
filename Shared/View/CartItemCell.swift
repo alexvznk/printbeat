@@ -41,11 +41,6 @@ class CartItemCell: UITableViewCell {
         
         productTitleLbl.text = product.name
         
-        
-//        if let price = formatter.string(from: product.price as NSNumber) {
-//            productTitleLbl.text = "\(product.name) \(price)"
-//        }
-        
         if let url = URL(string: product.imgUrl) {
             productImg.kf.setImage(with: url)
         }
