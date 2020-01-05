@@ -121,14 +121,14 @@ class ProfileVC: UIViewController {
         } else {
             purchaseView.isHidden = true
             openAllPurchasesBtn.isHidden = true
-            noPurchasesLbl.center.x -= 300
-            emptyBoxImg.center.x -= 300
+            noPurchasesLbl.center.x -= 200
+            emptyBoxImg.center.x -= 200
             noPurchasesLbl.isHidden = false
             emptyBoxImg.isHidden = false
             
             UIView.animate(withDuration: 0.5, delay: 0, usingSpringWithDamping: 0.9, initialSpringVelocity: 0.0, options: [] , animations: {
-                self.noPurchasesLbl.center.x += 300
-                self.emptyBoxImg.center.x += 300
+                self.noPurchasesLbl.center.x += 200
+                self.emptyBoxImg.center.x += 200
             }, completion: nil)
         }
     }

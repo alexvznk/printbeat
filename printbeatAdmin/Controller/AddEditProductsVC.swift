@@ -109,6 +109,7 @@ class AddEditProductsVC: UIViewController {
         let desc = productDescTxt.text, !desc.isEmpty else {
                 simpleAlert(title: "Error", message: "You must fill all fields correctly")
                 activityIndicator.stopAnimating()
+                addBtn.isEnabled = true
                 return
         }
         
@@ -122,6 +123,7 @@ class AddEditProductsVC: UIViewController {
                 debugPrint(error.localizedDescription)
                 self.simpleAlert(title: "Error", message: "Unable to upload the image")
                 self.activityIndicator.stopAnimating()
+                self.addBtn.isEnabled = true
                 return
             }
             imageRef.downloadURL(completion: { (url, error) in
@@ -129,6 +131,7 @@ class AddEditProductsVC: UIViewController {
                     debugPrint(error.localizedDescription)
                     self.simpleAlert(title: "Error", message: "Unable to upload the image")
                     self.activityIndicator.stopAnimating()
+                    self.addBtn.isEnabled = true
                     return
                 }
                 guard let url = url else { return }
@@ -140,13 +143,15 @@ class AddEditProductsVC: UIViewController {
     
     func uploadDocument(url: String) {
         var docRef: DocumentReference!
-        var product = Product.init(name: productNameTxt.text!, id: "", categoryId: selectedCategory.id, price: (productPriceTxt.text! as NSString).doubleValue, productDescription: productDescTxt.text!, imgUrl: url, timeStamp: Timestamp(), stock: 1)
+        var product: Product
         
         if let newProduct = productToEdit {
             docRef = Firestore.firestore().collection("products").document(newProduct.id)
+            product = Product.init(name: productNameTxt.text!, id: "", categoryId: selectedCategory.id, price: (productPriceTxt.text! as NSString).doubleValue, productDescription: productDescTxt.text!, imgUrl: url, timeStamp: productToEdit!.timeStamp, stock: 1)
             product.id = newProduct.id
         } else {
             docRef = Firestore.firestore().collection("products").document()
+            product = Product.init(name: productNameTxt.text!, id: "", categoryId: selectedCategory.id, price: (productPriceTxt.text! as NSString).doubleValue, productDescription: productDescTxt.text!, imgUrl: url, timeStamp: Timestamp(), stock: 1)
             product.id = docRef.documentID
         }
         
@@ -156,6 +161,7 @@ class AddEditProductsVC: UIViewController {
                 debugPrint(error.localizedDescription)
                 self.simpleAlert(title: "Error", message: "Unable to create a product")
                 self.activityIndicator.stopAnimating()
+                self.addBtn.isEnabled = true
                 return
             }
             self.activityIndicator.stopAnimating()

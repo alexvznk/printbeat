@@ -17,15 +17,20 @@ class ProductDetailVC: UIViewController {
     @IBOutlet weak var bgView: UIVisualEffectView!
     @IBOutlet weak var blankDismissView: UIView!
     @IBOutlet weak var backBtn: UIButton!
+    @IBOutlet weak var addToCartBtn: UIButton!
     
     var product: Product!
     var isPurchased = false
+    var isAdmin = false
     
     override func viewDidLoad() {
         super.viewDidLoad()
         if (isPurchased) {
             bgView.isHidden = true
             backBtn.setTitle("Back", for: .normal)
+        }
+        if (isAdmin) {
+            addToCartBtn.isHidden = true
         }
         productTitle.text = product.name
         productDescription.text = product.productDescription

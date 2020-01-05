@@ -8,15 +8,22 @@
 
 import UIKit
 import FirebaseAuth
+import FirebaseFirestore
+
 class AdminHomeVC: HomeVC {
 
+    var longPressGesture: UILongPressGestureRecognizer!
+    var didReorder = false
+    var isInitial = true
+    var initialCategories = [Category]()
+    
     override func viewDidLoad() {
         isAdminVC = true
         super.viewDidLoad()
         let addCategoryBtn = UIBarButtonItem(title: "Add Category", style: .plain, target: self, action: #selector(addCategory))
         navigationItem.rightBarButtonItem = addCategoryBtn
-        
-
+        longPressGesture = UILongPressGestureRecognizer(target: self, action: #selector(handleLongGesture))
+        collectionView.addGestureRecognizer(longPressGesture)
     }
     
     override func viewDidAppear(_ animated: Bool) {
@@ -24,6 +31,38 @@ class AdminHomeVC: HomeVC {
         if Auth.auth().currentUser == nil {
            performSegue(withIdentifier: Segues.ToAdminLoginVC, sender: self)
         }
+        didReorder = false
+        isInitial = true
+    }
+    
+    override func viewDidDisappear(_ animated: Bool) {
+        listener.remove()
+        if (didReorder) {
+            for index in 0..<initialCategories.count {
+                if initialCategories[index].id != categories[index].id {
+                    let docRef = Firestore.firestore().collection("categories").document(categories[index].id)
+                    docRef.updateData(["timeStamp":initialCategories[index].timeStamp])
+                }
+            }
+        }
+        categories.removeAll()
+        collectionView.reloadData()
+    }
+    
+    
+    @objc func handleLongGesture(gesture: UILongPressGestureRecognizer) {
+        switch gesture.state {
+        case .began:
+            guard let selectedIndexPath = collectionView.indexPathForItem(at: gesture.location(in: collectionView)) else { break }
+            collectionView.beginInteractiveMovementForItem(at: selectedIndexPath)
+        case .changed:
+            collectionView.updateInteractiveMovementTargetPosition(gesture.location(in: gesture.view!))
+        case .ended:
+            collectionView.endInteractiveMovement()
+        default:
+            collectionView.cancelInteractiveMovement()
+        }
+        
     }
     
     override func loginOutClicked(_ sender: Any) {
@@ -69,7 +108,6 @@ class AdminHomeVC: HomeVC {
         }
     
     }
-
     
 }
 
@@ -77,7 +115,29 @@ extension AdminHomeVC: UIAdaptivePresentationControllerDelegate {
     
     func presentationControllerDidDismiss(_ presentationController: UIPresentationController) {
         loginOutBtn.title = "Logout"
+        didReorder = false
+        isInitial = true
         setCategoriesListener()
+    }
+}
+
+extension AdminHomeVC {
+    func collectionView(_ collectionView: UICollectionView, canMoveItemAt indexPath: IndexPath) -> Bool {
+        return true
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, moveItemAt sourceIndexPath: IndexPath, to destinationIndexPath: IndexPath) {
+        
+        didReorder = true
+        
+        if (isInitial) {
+            initialCategories = categories
+            isInitial = false
+        }
+
+        let categoryToInsert = categories.remove(at: sourceIndexPath.row)
+        categories.insert(categoryToInsert, at: destinationIndexPath.row)
+
     }
 }
 

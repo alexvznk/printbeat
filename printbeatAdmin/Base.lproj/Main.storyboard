@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15702" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="0bF-Xf-tbL">
-    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <device id="retina6_5" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15704"/>
@@ -166,7 +166,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to add category image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5wZ-Bi-h1X">
-                                                <rect key="frame" x="20" y="184" width="374" height="23.5"/>
+                                                <rect key="frame" x="20" y="184" width="374" height="23.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -181,7 +181,7 @@
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="allCharacters" textContentType="name"/>
                                             </textField>
                                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="upload_category" translatesAutoresizingMaskIntoConstraints="NO" id="mRA-pb-XOY" customClass="RoundedImageView15" customModule="printbeatAdmin" customModuleProvider="target">
-                                                <rect key="frame" x="107" y="227.5" width="200" height="250"/>
+                                                <rect key="frame" x="107" y="227.66666666666663" width="200" height="250"/>
                                                 <color key="backgroundColor" red="0.85114233539999995" green="0.85114233539999995" blue="0.85114233539999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="250" id="t4E-Ox-i4L"/>
@@ -189,7 +189,7 @@
                                                 </constraints>
                                             </imageView>
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="PqY-4B-tGZ">
-                                                <rect key="frame" x="188.5" y="517.5" width="37" height="37"/>
+                                                <rect key="frame" x="188.66666666666666" y="517.66666666666663" width="37" height="37"/>
                                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </activityIndicatorView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ChT-S0-3qx" customClass="RoundedButton25" customModule="printbeatAdmin" customModuleProvider="target">
@@ -357,13 +357,13 @@
                                                 <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
                                             </textField>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Tap to add image" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="JQS-sd-2pd">
-                                                <rect key="frame" x="20" y="275.5" width="374" height="23.5"/>
+                                                <rect key="frame" x="20" y="275.66666666666669" width="374" height="23.333333333333314"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="6kK-nd-cmm">
-                                                <rect key="frame" x="20" y="175.5" width="374" height="80"/>
+                                                <rect key="frame" x="20" y="175.66666666666666" width="374" height="80"/>
                                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <constraints>
                                                     <constraint firstAttribute="height" constant="80" id="QQu-hU-dgF"/>
@@ -380,7 +380,7 @@
                                                 </constraints>
                                             </imageView>
                                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="5c4-gF-8TG">
-                                                <rect key="frame" x="188.5" y="506" width="37" height="37"/>
+                                                <rect key="frame" x="188.66666666666666" y="506" width="37" height="37"/>
                                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </activityIndicatorView>
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hc1-Sy-tBf" customClass="RoundedButton25" customModule="printbeatAdmin" customModuleProvider="target">
@@ -398,7 +398,7 @@
                                                 </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Enter Description Below" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="J32-Fw-kSb">
-                                                <rect key="frame" x="112.5" y="140" width="189" height="23.5"/>
+                                                <rect key="frame" x="112.66666666666669" y="140" width="189" height="23.666666666666657"/>
                                                 <fontDescription key="fontDescription" name="AvenirNext-Medium" family="Avenir Next" pointSize="17"/>
                                                 <nil key="textColor"/>
                                                 <nil key="highlightedColor"/>
@@ -549,7 +549,7 @@
                                 </constraints>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Administrator Access" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UIY-KF-08x">
-                                <rect key="frame" x="125.5" y="201.5" width="163.5" height="23.5"/>
+                                <rect key="frame" x="125.33333333333333" y="201.66666666666666" width="163.66666666666669" height="23.333333333333343"/>
                                 <fontDescription key="fontDescription" name="AvenirNext-Regular" family="Avenir Next" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
@@ -569,7 +569,7 @@
                                 </connections>
                             </button>
                             <activityIndicatorView hidden="YES" opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="750" verticalHuggingPriority="750" hidesWhenStopped="YES" style="whiteLarge" translatesAutoresizingMaskIntoConstraints="NO" id="xcx-EW-Boi">
-                                <rect key="frame" x="188.5" y="356" width="37" height="37"/>
+                                <rect key="frame" x="188.66666666666666" y="356" width="37" height="37"/>
                                 <color key="color" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </activityIndicatorView>
                         </subviews>
@@ -607,11 +607,11 @@
     <resources>
         <image name="bar_button_cart" width="27" height="24"/>
         <image name="bar_button_star" width="26" height="26"/>
-        <image name="dollar" width="64" height="64"/>
+        <image name="dollar" width="42.666667938232422" height="42.666667938232422"/>
         <image name="home" width="25" height="25"/>
         <image name="logo_printbeat" width="600" height="200"/>
         <image name="shopping-bag" width="25" height="25"/>
-        <image name="upload" width="327" height="217.5"/>
+        <image name="upload" width="218" height="145"/>
         <image name="upload_category" width="534" height="667"/>
     </resources>
     <inferredMetricsTieBreakers>

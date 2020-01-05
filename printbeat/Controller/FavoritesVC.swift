@@ -11,10 +11,14 @@ import FirebaseFirestore
 
 class FavoritesVC: ProductsVC {
     
+    @IBOutlet weak var noFavsLbl: UILabel!
+    
+    
     var favoritesListener: ListenerRegistration!
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        noFavsLbl.isHidden = false
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -67,11 +71,15 @@ class FavoritesVC: ProductsVC {
                 switch change.type {
                 case .added:
                     self.onDocumentAdded(change: change, product: product)
+                    self.noFavsLbl.isHidden = true
                     self.tableView.reloadData()
                 case .modified:
                     self.onDocumentModified(change: change, product: product)
                 case .removed:
                     self.onDocumentRemoved(change: change)
+                    if UserService.favorites.isEmpty {
+                        self.noFavsLbl.isHidden = false
+                    }
                 }
                 
             })

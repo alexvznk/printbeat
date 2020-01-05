@@ -102,6 +102,7 @@ extension PurchaseDetailsVC: UITableViewDelegate, UITableViewDataSource {
         let selectedProduct = products[indexPath.row]
         vc.product = selectedProduct
         vc.isPurchased = true
+        vc.isAdmin = true
         vc.modalTransitionStyle = .coverVertical
         vc.modalPresentationStyle = .overCurrentContext
         let impactFeedbackgenerator = UIImpactFeedbackGenerator(style: .medium)

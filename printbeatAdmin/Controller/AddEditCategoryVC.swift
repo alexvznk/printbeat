@@ -98,6 +98,7 @@ class AddEditCategoryVC: UIViewController {
             let categoryName = nameTxt.text, !categoryName.isEmpty else {
                 simpleAlert(title: "Error", message: "You must add category image and name")
                 activityIndicator.stopAnimating()
+                addBtn.isEnabled = true
                 return
         }
         
@@ -133,13 +134,15 @@ class AddEditCategoryVC: UIViewController {
     
     func uploadDocument(url: String) {
         var docRef: DocumentReference!
-        var category = Category.init(name: nameTxt.text!, id: "", imgUrl: url, timeStamp: Timestamp())
+        var category: Category
         
         if let newCategory = categoryToEdit {
             docRef = Firestore.firestore().collection("categories").document(newCategory.id)
+            category = Category.init(name: nameTxt.text!, id: "", imgUrl: url, timeStamp: categoryToEdit!.timeStamp)
             category.id = newCategory.id
         } else {
             docRef = Firestore.firestore().collection("categories").document()
+            category = Category.init(name: nameTxt.text!, id: "", imgUrl: url, timeStamp: Timestamp())
             category.id = docRef.documentID
         }
         
