@@ -4,6 +4,13 @@
   - pod install   --verbose 
 
 
+# Cannot find 'PKShippingMethod' in scope
+Find CheckoutVC.swift and import module 
+-  /printbeat/Controller/CheckoutVC.swift 
+```swift
+import PassKit
+```
+
 # Printbeat
 Printbeat is an e-commerce iOS application where you can purchase canvas art. 
 - Two apps in total: User App and Admin App.
