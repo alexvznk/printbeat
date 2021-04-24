@@ -1,3 +1,9 @@
+# Commands to speed up the preview of this project
+  - gem update xcodeproj 
+  - pod deintegrate
+  - pod install   --verbose 
+
+
 # Printbeat
 Printbeat is an e-commerce iOS application where you can purchase canvas art. 
 - Two apps in total: User App and Admin App.
